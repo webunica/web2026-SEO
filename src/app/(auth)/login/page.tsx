@@ -37,15 +37,9 @@ export default function LoginPage() {
         <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2070')] bg-cover bg-center mix-blend-overlay" />
         
         <Link href="/" className="relative z-10 flex items-center space-x-2 group">
-          <Image
-            src="/images/logo-vertical.png"
-            alt="SolocasasChile"
-            width={160}
-            height={120}
-            className="h-16 w-auto object-contain group-hover:scale-105 transition-transform"
-            style={{ filter: "brightness(0) invert(1)" }}
-            priority
-          />
+          <div className="flex flex-col items-center">
+             <span className="text-4xl font-black text-white tracking-tighter">webunica<span className="text-brand-green">.cl</span></span>
+          </div>
         </Link>
 
         <div className="relative z-10 space-y-16">

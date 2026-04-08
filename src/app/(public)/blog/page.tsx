@@ -63,7 +63,7 @@ export default async function BlogPage() {
                     />
                   ) : (
                     <div className="absolute inset-0 bg-brand-indigo/5 flex items-center justify-center">
-                      <Image src="/images/logo-vertical.png" alt="SoloCasas" width={100} height={80} className="opacity-10" />
+                      <span className="text-2xl font-black text-white/5 tracking-tighter">webunica.cl</span>
                     </div>
                   )}
                   <div className="absolute top-4 left-4">

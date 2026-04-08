@@ -44,7 +44,7 @@ export function buildModelJsonLd(modelo: {
     logo_url?: string | null;
   } | null;
 }) {
-  const baseUrl = 'https://solocasaschile.com';
+  const baseUrl = 'https://webunica.cl';
   const amenities: any[] = [];
 
   // Add terminaciones as amenity features
@@ -89,35 +89,22 @@ export function buildModelJsonLd(modelo: {
 
   const jsonLd: Record<string, any> = {
     "@context": "https://schema.org",
-    "@type": "House",
+    "@type": "Product",
     "name": modelo.nombre,
     "description": modelo.descripcion || undefined,
     "url": `${baseUrl}/modelo/${modelo.slug}`,
     "image": modelo.imagenes_urls?.[0] || undefined,
-    "numberOfRooms": modelo.dormitorios || undefined,
-    "numberOfBedrooms": modelo.dormitorios || undefined,
-    "numberOfBathroomsTotal": modelo.banos || undefined,
-    "numberOfFullBathrooms": modelo.banos || undefined,
-    "floorSize": modelo.superficie_m2
-      ? { "@type": "QuantitativeValue", "value": modelo.superficie_m2, "unitCode": "MTK" }
-      : undefined,
-    "numberOfFloors": modelo.pisos || 1,
-    "leaseLength": modelo.tiempo_entrega ? { "@type": "QuantitativeValue", "value": modelo.tiempo_entrega } : undefined,
     "offers": {
       "@type": "Offer",
       "priceCurrency": "CLF",
       "price": modelo.precio_desde_uf,
       "availability": "https://schema.org/InStock",
-      "seller": modelo.constructora
-        ? {
-            "@type": "Organization",
-            "name": modelo.constructora.nombre,
-            "url": modelo.constructora.sitio_web || undefined,
-            "logo": modelo.constructora.logo_url || undefined,
-          }
-        : undefined,
+      "seller": {
+        "@type": "Organization",
+        "name": "Webunica Chile",
+        "url": "https://webunica.cl"
+      },
     },
-    "amenityFeature": amenities.length ? amenities : undefined,
   };
 
   // Clean undefined values
@@ -145,20 +132,16 @@ export function buildOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "SolocasasChile",
-    "url": "https://solocasaschile.com",
-    "logo": "https://solocasaschile.com/images/logo.png",
-    "description": "El comparador inteligente de casas prefabricadas, SIP, container y llave en mano en Chile.",
+    "name": "Webunica Chile",
+    "url": "https://webunica.cl",
+    "logo": "https://webunica.cl/favicon.png",
+    "description": "Expertos en Diseño Web Shopify Chile. Creamos tiendas online de alto rendimiento con integraciones locales.",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "solicitud@solocasaschile.com",
+      "email": "contacto@webunica.cl",
       "availableLanguage": "Spanish",
     },
-    "sameAs": [
-      "https://www.instagram.com/solocasaschile",
-      "https://www.facebook.com/solocasaschile",
-    ],
     "areaServed": { "@type": "Country", "name": "Chile" },
   };
 }
@@ -168,13 +151,13 @@ export function buildWebSiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "SolocasasChile",
-    "url": "https://solocasaschile.com",
+    "name": "Webunica Chile",
+    "url": "https://webunica.cl",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://solocasaschile.com/catalogo?q={search_term_string}",
+        "urlTemplate": "https://webunica.cl/portafolio?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -196,4 +179,3 @@ export function buildFAQJsonLd(faqs: { question: string; answer: string }[]) {
     })),
   };
 }
-

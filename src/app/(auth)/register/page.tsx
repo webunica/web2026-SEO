@@ -230,14 +230,9 @@ function RegisterForm() {
         {/* Header */}
         <div className="text-center space-y-6">
           <Link href="/" className="inline-block hover:scale-105 transition-transform">
-            <Image
-              src="/images/logo-vertical.png"
-              alt="SolocasasChile"
-              width={160}
-              height={120}
-              className="h-24 w-auto object-contain mx-auto"
-              priority
-            />
+            <div className="flex flex-col items-center">
+               <span className="text-4xl font-black text-brand-indigo tracking-tighter">webunica<span className="text-brand-teal">.cl</span></span>
+            </div>
           </Link>
           <div className="space-y-3">
             <h1 className="text-3xl lg:text-4xl font-heading font-black tracking-tighter text-brand-indigo whitespace-nowrap">

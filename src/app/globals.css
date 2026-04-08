@@ -84,6 +84,10 @@
   --color-brand-green: var(--brand-green);
   --color-brand-blue: var(--brand-blue);
   --color-brand-soft: var(--brand-soft);
+
+  /* Compatibility aliases */
+  --color-brand-indigo: var(--brand-purple);
+  --color-brand-teal: var(--brand-green);
   
   --radius-lg: 1.5rem;
   --radius-md: 1rem;
@@ -196,11 +200,11 @@
 
 /* Premium Form Styles */
 .form-label {
-  @apply text-base font-bold text-brand-indigo mb-2 block;
+  @apply text-base font-bold text-brand-purple mb-2 block;
 }
 
 .form-input-premium {
-  @apply w-full bg-muted/40 border-border/60 h-16 rounded-2xl pr-6 pl-14 font-bold text-base transition-all focus:bg-background focus:ring-4 focus:ring-brand-indigo/10;
+  @apply w-full bg-muted/40 border-border/60 h-16 rounded-2xl pr-6 pl-14 font-bold text-base transition-all focus:bg-background focus:ring-4 focus:ring-brand-purple/10;
 }
 
 ::placeholder {
