@@ -17,7 +17,7 @@ export async function saveBlogPost(postData: {
   status?: 'draft' | 'published';
 }) {
   if (!supabase) {
-    throw new Error('DB no disponible. Configura NEXT_PUBLIC_SUPABASE_URL y NEXT_PUBLIC_SUPABASE_ANON_KEY en Vercel.');
+    return { success: false, error: 'DB no disponible. Configura NEXT_PUBLIC_SUPABASE_URL y ANNON_KEY.' };
   }
 
   // Sólo los campos que existen en la tabla blog_posts
@@ -36,17 +36,19 @@ export async function saveBlogPost(postData: {
   };
 
   // Verificar si el slug ya existe
-  const { data: existing } = await supabase
+  const { data: existing, error: existError } = await supabase
     .from('blog_posts')
     .select('id')
     .eq('slug', insertData.slug)
     .maybeSingle();
 
+  if (existError) {
+    console.error('Error verificando slug:', existError);
+  }
+
   if (existing) {
     insertData.slug = `${insertData.slug}-${Date.now().toString().slice(-4)}`;
   }
-
-  console.log('[saveBlogPost] Insertando post:', insertData.title);
 
   const { data, error } = await supabase
     .from('blog_posts')
@@ -55,14 +57,16 @@ export async function saveBlogPost(postData: {
     .single();
 
   if (error) {
-    console.error('[saveBlogPost] Error:', error);
-    throw new Error(`Error de base de datos: ${error.message}`);
+    console.error('[saveBlogPost] Error Supabase:', error);
+    return { success: false, error: `Error DB: ${error.message}` };
   }
 
-  console.log('[saveBlogPost] Post guardado con ID:', data.id);
-
-  revalidatePath('/blog');
-  revalidatePath(`/blog/${data.slug}`);
+  try {
+    revalidatePath('/blog');
+    revalidatePath(`/blog/${data.slug}`);
+  } catch (e) {
+    console.warn('Error en revalidatePath', e);
+  }
 
   return { success: true, post: data };
 }

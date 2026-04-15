@@ -76,13 +76,15 @@ function GeneratorForm() {
     setError('');
 
     try {
-      const { success, post } = await saveBlogPost(generatedPost);
-      if (success) {
+      const response = await saveBlogPost(generatedPost);
+      if (response && response.success) {
         setSaved(true);
-        setTimeout(() => router.push(`/blog/${post.slug}`), 1500);
+        setTimeout(() => router.push(`/blog/${response.post.slug}`), 1500);
+      } else {
+        setError(response?.error || 'Error desconocido al guardar en la base de datos.');
       }
     } catch (err: any) {
-      setError(err.message || 'Error al guardar. Verifica las variables de entorno de Supabase.');
+      setError(err.message || 'Error de conexión. Verifica las variables de entorno de Supabase.');
     } finally {
       setIsSaving(false);
     }
