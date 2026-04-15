@@ -1,20 +1,51 @@
 'use client';
 
-import { useState } from 'react';
-import { Sparkles, Save, Eye, Loader2, Wand2, Search } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useTransition } from 'react';
+import { Sparkles, Save, Eye, Loader2, Wand2, Search, ArrowLeft, CheckCircle2, ImageIcon } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { saveBlogPost } from '@/lib/blog-actions';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Suspense } from 'react';
 
-export default function BlogGeneratorPage() {
+function GeneratorForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [topic, setTopic] = useState('');
   const [keywords, setKeywords] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [generatedPost, setGeneratedPost] = useState<any>(null);
   const [error, setError] = useState('');
-  const router = useRouter();
+  const [saved, setSaved] = useState(false);
 
-  const handleGenerate = async () => {
+  // Pre-fill from URL params (coming from the topic list page)
+  useEffect(() => {
+    const topicParam = searchParams.get('topic');
+    const keywordsParam = searchParams.get('keywords');
+    if (topicParam) setTopic(topicParam);
+    if (keywordsParam) setKeywords(keywordsParam);
+  }, [searchParams]);
+
+  // Auto-generate if params are present in URL
+  useEffect(() => {
+    const topicParam = searchParams.get('topic');
+    if (topicParam && !generatedPost) {
+      // Small delay for UX
+      const timer = setTimeout(() => {
+        handleGenerate(topicParam, searchParams.get('keywords') || '');
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleGenerate = async (t?: string, k?: string) => {
+    const useTopic = t || topic;
+    const useKeywords = k || keywords;
+    if (!useTopic) return;
+
     setIsGenerating(true);
     setError('');
     setGeneratedPost(null);
@@ -23,18 +54,17 @@ export default function BlogGeneratorPage() {
       const res = await fetch('/api/blog/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          topic, 
-          keywords: keywords.split(',').map(k => k.trim()) 
+        body: JSON.stringify({
+          topic: useTopic,
+          keywords: useKeywords.split(',').map((kw: string) => kw.trim()).filter(Boolean),
         }),
       });
 
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      
       setGeneratedPost(data);
     } catch (err: any) {
-      setError(err.message || 'Error al generar el contenido');
+      setError(err.message || 'Error al generar el contenido. Verifica tu OPENAI_API_KEY.');
     } finally {
       setIsGenerating(false);
     }
@@ -48,120 +78,214 @@ export default function BlogGeneratorPage() {
     try {
       const { success, post } = await saveBlogPost(generatedPost);
       if (success) {
-        alert('¡Post publicado con éxito!');
-        router.push(`/blog/${post.slug}`);
+        setSaved(true);
+        setTimeout(() => router.push(`/blog/${post.slug}`), 1500);
       }
     } catch (err: any) {
-      setError(err.message || 'Error al guardar el post');
+      setError(err.message || 'Error al guardar. Verifica las variables de entorno de Supabase.');
     } finally {
       setIsSaving(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-32 pb-20">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="flex flex-col lg:flex-row gap-12">
-          
-          {/* Input Panel */}
-          <div className="lg:w-1/3 space-y-8">
-            <div className="bg-white rounded-[2.5rem] p-10 shadow-xl shadow-brand-purple/5 border border-slate-100">
-              <h1 className="text-3xl font-black text-slate-900 tracking-tighter mb-6 flex items-center gap-3">
-                <Sparkles className="text-brand-purple w-8 h-8" />
-                AI Content
-              </h1>
-              
-              <div className="space-y-6">
+    <div className="min-h-screen bg-slate-50 pt-28 pb-20">
+      <div className="container mx-auto px-6 max-w-7xl">
+
+        {/* Top Nav */}
+        <div className="flex items-center justify-between mb-10">
+          <Link href="/admin-blog" className="inline-flex items-center gap-2 text-slate-500 hover:text-violet-600 font-bold text-sm transition-colors group">
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            Volver a temas
+          </Link>
+          {generatedPost && !saved && (
+            <button
+              onClick={handleSave}
+              disabled={isSaving}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white font-black rounded-xl hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20 disabled:opacity-70"
+            >
+              {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+              Publicar Ahora
+            </button>
+          )}
+          {saved && (
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white font-black rounded-xl">
+              <CheckCircle2 className="w-4 h-4" />
+              ¡Publicado! Redirigiendo...
+            </div>
+          )}
+        </div>
+
+        <div className="flex flex-col xl:flex-row gap-8">
+
+          {/* Left: Controls */}
+          <div className="xl:w-[380px] shrink-0 space-y-6">
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-violet-600" />
+                </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">Tema Principal</label>
-                  <input 
-                    type="text"
+                  <h1 className="text-lg font-black text-slate-900">Generador de Post</h1>
+                  <p className="text-xs text-slate-400 font-medium">Powered by GPT-4o + DALL-E 3</p>
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-xs font-black text-slate-700 uppercase tracking-widest mb-2">Tema del Artículo</label>
+                  <textarea
                     value={topic}
                     onChange={(e) => setTopic(e.target.value)}
-                    placeholder="Ej: Tendencias Shopify 2025"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand-purple/20 transition-all font-medium"
+                    placeholder="Ej: Cómo integrar Webpay en Shopify Chile"
+                    rows={3}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-300 transition-all font-medium text-sm resize-none"
                   />
                 </div>
-                
+
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">Keywords (separadas por coma)</label>
-                  <textarea 
+                  <label className="block text-xs font-black text-slate-700 uppercase tracking-widest mb-2">Keywords SEO (separadas por coma)</label>
+                  <textarea
                     value={keywords}
                     onChange={(e) => setKeywords(e.target.value)}
-                    placeholder="Shopify Chile, SEO, diseño web"
+                    placeholder="webpay shopify, shopify chile, pago shopify"
                     rows={3}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand-purple/20 transition-all font-medium"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-violet-500/20 focus:border-violet-300 transition-all font-medium text-sm resize-none"
                   />
                 </div>
 
-                <button 
-                  onClick={handleGenerate}
+                <button
+                  onClick={() => handleGenerate()}
                   disabled={isGenerating || !topic}
-                  className="w-full bg-brand-purple text-white font-black rounded-2xl py-5 flex items-center justify-center gap-3 hover:bg-brand-purple/90 transition-all shadow-lg shadow-brand-purple/20 disabled:opacity-50"
+                  className="w-full bg-violet-600 text-white font-black rounded-2xl py-4 flex items-center justify-center gap-3 hover:bg-violet-700 transition-all shadow-lg shadow-violet-600/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isGenerating ? (
-                    <Loader2 className="w-6 h-6 animate-spin" />
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Generando con IA…
+                    </>
                   ) : (
-                    <Wand2 className="w-6 h-6" />
+                    <>
+                      <Wand2 className="w-5 h-5" />
+                      Generar Artículo
+                    </>
                   )}
-                  Generar Artículo
                 </button>
               </div>
-              
-              {error && (
-                <div className="mt-6 p-4 bg-red-50 text-red-600 rounded-xl text-xs font-bold border border-red-100">
-                  {error}
-                </div>
-              )}
             </div>
+
+            {/* Generation progress indicators */}
+            {isGenerating && (
+              <div className="bg-white rounded-3xl p-6 border border-slate-100 space-y-4">
+                <p className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Procesando…</p>
+                {['Escribiendo artículo SEO', 'Generando imagen DALL-E 3', 'Optimizando metadatos'].map((step, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <Loader2 className="w-4 h-4 text-violet-500 animate-spin" />
+                    <span className="text-sm font-medium text-slate-600">{step}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-red-50 border border-red-200 rounded-2xl p-5 text-red-700 text-sm font-bold">
+                ⚠️ {error}
+              </div>
+            )}
+
+            {/* SEO Meta preview panel */}
+            {generatedPost && (
+              <div className="bg-white rounded-3xl p-6 border border-slate-100 space-y-4">
+                <p className="text-xs font-black text-slate-400 uppercase tracking-widest">Preview en Google</p>
+                <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 font-sans">
+                  <div className="text-blue-700 text-base font-medium mb-1 line-clamp-1">{generatedPost.seo_title}</div>
+                  <div className="text-emerald-700 text-xs mb-1 font-medium">webunica.cl › blog › {generatedPost.slug}</div>
+                  <div className="text-slate-600 text-xs line-clamp-2 leading-relaxed">{generatedPost.seo_description}</div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-slate-50 rounded-xl p-3">
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Título SEO</p>
+                    <p className="text-xs font-bold text-slate-700">{generatedPost.seo_title?.length} / 60 chars</p>
+                  </div>
+                  <div className="bg-slate-50 rounded-xl p-3">
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Meta Desc.</p>
+                    <p className="text-xs font-bold text-slate-700">{generatedPost.seo_description?.length} / 160 chars</p>
+                  </div>
+                </div>
+
+                {generatedPost.cover_image_alt && (
+                  <div className="bg-slate-50 rounded-xl p-3">
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Alt Imagen SEO</p>
+                    <p className="text-xs text-slate-600 font-medium">{generatedPost.cover_image_alt}</p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
-          {/* Preview Panel */}
-          <div className="lg:w-2/3">
+          {/* Right: Preview */}
+          <div className="flex-1 min-w-0">
             {generatedPost ? (
-              <div className="bg-white rounded-[2.5rem] p-12 shadow-xl border border-slate-100 animate-in fade-in slide-in-from-bottom-5">
-                <div className="flex items-center justify-between mb-10 pb-10 border-b border-slate-100">
-                  <h2 className="text-sm font-black text-brand-purple uppercase tracking-widest">Vista Previa SEO</h2>
-                  <div className="flex gap-4">
-                    <button className="px-6 py-3 bg-slate-100 text-slate-600 font-bold rounded-xl hover:bg-slate-200 transition-all flex items-center gap-2">
-                       <Eye className="w-4 h-4" />
-                       Editar
-                    </button>
-                    <button 
-                      onClick={handleSave}
-                      disabled={isSaving}
-                      className="px-6 py-3 bg-brand-green text-white font-black rounded-xl hover:bg-brand-green/90 transition-all flex items-center gap-2 shadow-lg shadow-brand-green/20"
-                    >
-                       {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                       Guardar Post
-                    </button>
-                  </div>
-                </div>
-
-                <div className="space-y-10">
-                  <div>
-                    <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-3 text-center">Preview Google</h3>
-                    <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 max-w-xl mx-auto font-sans">
-                       <div className="text-blue-700 text-xl font-medium mb-1 line-clamp-1">{generatedPost.seo_title}</div>
-                       <div className="text-slate-500 text-sm mb-1">webunica.cl › blog › {generatedPost.slug}</div>
-                       <div className="text-slate-600 text-sm line-clamp-2">{generatedPost.seo_description}</div>
+              <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm">
+                {/* Cover Image */}
+                {generatedPost.cover_image ? (
+                  <div className="relative h-72 w-full">
+                    <Image
+                      src={generatedPost.cover_image}
+                      alt={generatedPost.cover_image_alt || generatedPost.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute bottom-4 left-6">
+                      <span className="px-3 py-1 bg-white/90 backdrop-blur text-violet-700 text-xs font-black rounded-full">
+                        🖼️ Imagen DALL-E 3
+                      </span>
                     </div>
                   </div>
-
-                  <div className="prose prose-slate prose-lg max-w-none prose-headings:font-black prose-headings:tracking-tighter">
-                    <h1 className="text-5xl border-b border-slate-100 pb-8">{generatedPost.title}</h1>
-                    <div className="italic text-slate-400 mb-10">{generatedPost.excerpt}</div>
-                    <div dangerouslySetInnerHTML={{ __html: generatedPost.content }} />
+                ) : (
+                  <div className="h-48 bg-gradient-to-br from-violet-50 to-emerald-50 flex items-center justify-center">
+                    <ImageIcon className="w-12 h-12 text-slate-300" />
                   </div>
+                )}
+
+                {/* Content Preview */}
+                <div className="p-10">
+                  <h2 className="text-4xl font-black text-slate-900 tracking-tighter mb-4 leading-tight">
+                    {generatedPost.title}
+                  </h2>
+                  <p className="text-slate-500 text-lg italic border-l-4 border-violet-200 pl-4 mb-8">
+                    {generatedPost.excerpt}
+                  </p>
+                  <div
+                    className="prose prose-slate prose-lg max-w-none prose-headings:font-black prose-headings:tracking-tighter prose-h2:text-2xl prose-h3:text-xl prose-a:text-violet-600"
+                    dangerouslySetInnerHTML={{ __html: generatedPost.content }}
+                  />
                 </div>
               </div>
             ) : (
-              <div className="h-full flex flex-col items-center justify-center p-20 text-center bg-slate-100/50 rounded-[3.5rem] border border-dashed border-slate-200">
-                 <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-8">
-                   <Search className="w-10 h-10 text-slate-300" />
-                 </div>
-                 <h3 className="text-2xl font-bold text-slate-900 mb-2">Listo para crear magia</h3>
-                 <p className="text-slate-500 max-w-xs">Ingresa un tema a la izquierda y deja que la IA redacte un artículo optimizado para Webunica.</p>
+              <div className="h-full min-h-[500px] flex flex-col items-center justify-center text-center bg-white rounded-3xl border border-dashed border-slate-200">
+                {isGenerating ? (
+                  <div className="space-y-4">
+                    <div className="w-16 h-16 bg-violet-100 rounded-2xl flex items-center justify-center mx-auto">
+                      <Loader2 className="w-8 h-8 text-violet-600 animate-spin" />
+                    </div>
+                    <p className="text-lg font-black text-slate-900">La IA está escribiendo…</p>
+                    <p className="text-slate-400 text-sm max-w-xs">GPT-4o está generando el artículo y DALL-E 3 está creando la imagen. Puede tardar 15-20 segundos.</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto">
+                      <Search className="w-8 h-8 text-slate-300" />
+                    </div>
+                    <p className="text-lg font-black text-slate-900">Escoge un tema</p>
+                    <p className="text-slate-400 text-sm max-w-xs">Selecciona un tema de la lista o escribe uno personalizado y haz clic en Generar.</p>
+                    <Link href="/admin-blog" className="inline-flex items-center gap-2 text-violet-600 font-bold text-sm hover:underline">
+                      ← Ver lista de temas
+                    </Link>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -169,5 +293,13 @@ export default function BlogGeneratorPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function BlogGeneratorPage() {
+  return (
+    <Suspense>
+      <GeneratorForm />
+    </Suspense>
   );
 }
