@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPostBySlug, getPublishedPosts } from '@/lib/blog';
-import { Calendar, Clock, User, ArrowLeft, Facebook, Share2, Link as LinkIcon } from 'lucide-react';
+import { Calendar, Clock, User, ArrowLeft, Globe, Share2, Link as LinkIcon } from 'lucide-react';
 
 interface PostPageProps {
   params: {
@@ -109,7 +109,7 @@ export default async function PostPage({ params }: PostPageProps) {
         {/* Left: Social Share */}
         <aside className="lg:w-20 lg:sticky lg:top-32 h-fit flex lg:flex-col gap-4">
            <button className="w-12 h-12 rounded-2xl bg-slate-50 text-slate-400 hover:bg-brand-purple hover:text-white transition-all flex items-center justify-center border border-slate-100">
-             <Facebook className="w-5 h-5" />
+             <Globe className="w-5 h-5" />
            </button>
            <button className="w-12 h-12 rounded-2xl bg-slate-50 text-slate-400 hover:bg-brand-purple hover:text-white transition-all flex items-center justify-center border border-slate-100">
              <Share2 className="w-5 h-5" />
