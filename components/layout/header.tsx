@@ -22,7 +22,8 @@ export default function Header() {
                     pathname === '/desarrollo-diseno-elearning-tutor-lms' ||
                     pathname === '/tienda-dropshipping-shopify-dropi' ||
                     pathname === '/calculadora-de-campana-meta-ads-facebook' ||
-                    pathname === '/portafolio';
+                    pathname === '/portafolio' ||
+                    pathname === '/servicios-seo-posicionamiento-google';
   
   const textColor = scrolled ? 'text-zinc-900' : (isDarkHero ? 'text-white' : 'text-[#2d3748]');
   const logoColor = scrolled ? 'text-zinc-900' : (isDarkHero ? 'text-white' : 'text-[#2d3748]');
@@ -97,6 +98,13 @@ export default function Header() {
                   <Link href="/tienda-dropshipping-shopify-dropi" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-purple-50 hover:text-purple-900 transition-colors flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-purple-400"></div>
                     Dropshipping Shopi+Dropi
+                  </Link>
+                  <Link href="/servicios-seo-posicionamiento-google" className="px-6 py-4 text-sm font-bold text-white bg-zinc-900 hover:bg-emerald-600 transition-colors flex items-center justify-between group/seo">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                      Auditoría & SEO Avanzado
+                    </div>
+                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full opacity-0 group-hover/seo:opacity-100 transition-opacity">PRO</span>
                   </Link>
                 </div>
               </div>

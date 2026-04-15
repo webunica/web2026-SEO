@@ -79,6 +79,11 @@ export default function Footer() {
                   Dropshipping Shopi+Dropi
                 </Link>
               </li>
+              <li>
+                <Link href="/servicios-seo-posicionamiento-google" className="text-sm font-bold text-emerald-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-emerald-400 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                  Auditoría & SEO Avanzado
+                </Link>
+              </li>
             </ul>
           </div>
 
