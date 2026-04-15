@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: '/desarrollo-diseno-paginas-web-pymes',
+        destination: '/desarrollo-paginas-web-pymes-chile',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
