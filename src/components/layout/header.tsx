@@ -1,205 +1,103 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./theme-toggle";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, ShoppingBag, Library, LayoutGrid, CreditCard, User, ChevronDown } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
-import { MegaMenu } from "./mega-menu";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-const NAV_LINKS = [
-  { href: "/diseno-web-shopify-chile", label: "Shopify", icon: ShoppingBag },
-  { href: "/planes", label: "Planes", icon: CreditCard },
-  { href: "/portafolio", label: "Portafolio", icon: Library },
-  { href: "/blog", label: "Blog", icon: LayoutGrid },
-];
+export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
-export function Header({ megaMenuAds }: { megaMenuAds?: any }) {
-  const { scrollY } = useScroll();
-  const [isOpen, setIsOpen] = useState(false);
-  const [showMegaMenu, setShowMegaMenu] = useState(false);
-  
-  // Adaptive height and style based on scroll
-  const headerY = useTransform(scrollY, [0, 50], [20, 10]);
-  const headerWidth = useTransform(scrollY, [0, 50], ["98%", "94%"]);
-  const headerRadius = useTransform(scrollY, [0, 50], ["1.5rem", "4rem"]);
-  const headerOpacity = useTransform(scrollY, [0, 50], [0.95, 1]);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Determinar si debemos usar texto claro u oscuro basado en la página si no hemos hecho scroll
+  const isDarkHero = pathname === '/desarrollo-tiendas-shopify-chile/' || pathname === '/desarrollo-tienda-en-linea-woocommerce/' || pathname === '/desarrollo-diseno-elearning-tutor-lms/';
+  const textColor = scrolled ? 'text-zinc-900' : (isDarkHero ? 'text-white' : 'text-[#2d3748]');
+  const logoColor = scrolled ? 'text-zinc-900' : (isDarkHero ? 'text-white' : 'text-[#2d3748]');
+  const logoAccent = scrolled ? 'border-zinc-900' : (isDarkHero ? 'border-white' : 'border-[#2d3748]');
 
   return (
-    <motion.header 
-      style={{ 
-        top: headerY,
-        width: headerWidth,
-        borderRadius: headerRadius,
-        opacity: headerOpacity,
-        marginTop: 'var(--announcement-height, 0px)'
-      }}
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={cn(
-        "fixed left-1/2 -translate-x-1/2 z-[100] border border-white/10 lg:border-white/20",
-        "bg-transparent lg:bg-background/80 backdrop-blur-none lg:backdrop-blur-3xl shadow-none lg:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)]",
-        "transition-all duration-500"
-      )}
-    >
-      <div className="container flex h-20 md:h-24 items-center px-4 sm:px-10 md:px-16 max-w-7xl mx-auto relative">
-        <motion.div
-           style={{ 
-             opacity: useTransform(scrollY, [0, 30], [1, 0]),
-             scale: useTransform(scrollY, [0, 30], [1, 0.92]),
-             x: useTransform(scrollY, [0, 30], [0, -10]),
-             filter: useTransform(scrollY, [0, 30], ["blur(0px)", "blur(4px)"])
-           }}
-           className="lg:hidden shrink-0"
-        >
-          <Link href="/" className="mr-6 flex items-center group shrink-0 relative transition-transform">
-            <span className="text-2xl font-black text-brand-purple tracking-tighter">webunica<span className="text-brand-green">.cl</span></span>
-          </Link>
-        </motion.div>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md border-b border-zinc-200 shadow-sm h-[75px]' : 'bg-transparent h-24'} flex items-center`}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
+        <div className="flex items-center justify-between h-full">
+          
+          {/* Logo Oficial Webunica */}
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/" className="group flex items-center">
+              <img 
+                src="https://webunica.cl/wp-content/uploads/2024/01/logo-webunica.png.webp" 
+                alt="Webunica Agencia" 
+                className={`h-10 w-auto transition-[filter] duration-1000 grayscale group-hover:grayscale-0 ${isDarkHero && !scrolled ? 'brightness-0 invert opacity-90' : ''}`}
+                width={150}
+                height={40}
+              />
+            </Link>
+          </div>
 
-        {/* Desktop Logo (Always Visible) */}
-        <Link href="/" className="hidden lg:flex mr-16 items-center group shrink-0 relative transition-transform hover:scale-[1.02]">
-          <div className="absolute -inset-4 bg-primary/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <span className="text-3xl font-black text-brand-purple tracking-tighter relative z-10 transition-colors">
-            webunica<span className="text-brand-green group-hover:text-brand-blue transition-colors">.cl</span>
-          </span>
-        </Link>
-        
-        <div className="flex flex-1 items-center justify-end lg:justify-between gap-6">
-          <nav className="hidden lg:flex items-center space-x-12 text-[15px] font-bold tracking-tight">
-            {NAV_LINKS.map((link) => (
-              <div 
-                key={link.href}
-                className="relative"
-              >
-                <Link 
-                  href={link.href} 
-                  className={cn(
-                    "text-brand-purple hover:opacity-80 transition-all relative group py-8 flex items-center gap-1"
-                  )}
-                >
-                  {link.label}
-                  <span className={cn(
-                    "absolute bottom-4 left-0 h-0.5 bg-brand-green transition-all duration-300 w-0 group-hover:w-full"
-                  )} />
-                </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
+            <Link href="/" className={`${textColor} font-bold hover:opacity-70 transition-opacity text-sm uppercase tracking-wide`}>
+              Inicio
+            </Link>
+            
+            {/* Servicios Dropdown */}
+            <div className="relative group">
+              <button className={`${textColor} font-bold hover:opacity-70 transition-opacity flex items-center gap-1 text-sm uppercase tracking-wide py-4`}>
+                Servicios
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              
+              <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-72 bg-white border border-zinc-100 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
+                <div className="flex flex-col py-3">
+                  <Link href="/desarrollo-tiendas-shopify-chile/" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-[#a1fcd8]/30 hover:text-teal-900 transition-colors flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#95bf47]"></div>
+                    Tiendas Shopify
+                  </Link>
+                  <Link href="/desarrollo-tienda-en-linea-woocommerce/" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-purple-100/50 hover:text-purple-900 transition-colors flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+                    WooCommerce Empresas
+                  </Link>
+                  <Link href="/desarrollo-paginas-web-pymes-chile/" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-blue-100/50 hover:text-blue-900 transition-colors flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                    Sitios Web Pymes
+                  </Link>
+                  <Link href="/desarrollo-diseno-elearning-tutor-lms/" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-orange-100/50 hover:text-orange-900 transition-colors flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-orange-500"></div>
+                    Academias Tutor LMS
+                  </Link>
+                </div>
               </div>
-            ))}
+            </div>
+
+            <Link href="/cotizador-en-linea-desarrollo-web" className={`${textColor} font-bold hover:opacity-70 transition-opacity text-sm uppercase tracking-wide`}>
+              Calculadora
+            </Link>
+            
+            <Link href="/contacto" className={`${textColor} font-bold hover:opacity-70 transition-opacity text-sm uppercase tracking-wide`}>
+              Contacto
+            </Link>
           </nav>
 
-          <div className="flex items-center gap-4 sm:gap-6">
-            {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center gap-3 border-r border-border/40 pr-8">
-                <ThemeToggle />
-                <Link 
-                  href="/login" 
-                  className={cn(
-                    "flex items-center gap-2 text-[15px] font-bold text-brand-purple hover:opacity-80 transition-all px-4 py-2"
-                  )}
-                >
-                  <User className="w-4 h-4" />
-                  Acceder
-                </Link>
-            </div>
-             
-            <Link 
-              href="/register" 
-              className={cn(
-                buttonVariants({ variant: "secondary", size: "default" }),
-                "rounded-2xl px-10 hover:-translate-y-0.5 active:translate-y-0 transition-all h-12 hidden lg:inline-flex brand-gradient border-0 text-white"
-              )}
-            >
-              Cotizar Proyecto
-            </Link>
+          {/* CTA & Mobile Menu */}
+          <div className="flex items-center gap-4">
+            <a href="tel:+56984410379" className={`hidden md:flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all transform hover:scale-105 shadow-xl ${scrolled ? 'bg-[#4f46e5] text-white hover:bg-blue-800' : (isDarkHero ? 'bg-white text-zinc-900 hover:bg-zinc-200 shadow-white/10' : 'bg-[#2d3748] text-white hover:bg-black')}`}>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+              Llamar Asesor
+            </a>
 
-            {/* Hamburger Menu (Mobile/Tablet Only) */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <button className="lg:hidden w-12 h-12 flex items-center justify-center rounded-2xl bg-primary/5 border border-primary/10 text-primary active:scale-90 transition-all">
-                   <Menu className="w-6 h-6" />
-                </button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] border-r border-border/40 bg-background/95 backdrop-blur-xl p-0">
-                <SheetHeader className="p-8 border-b border-border/40">
-                   <div className="flex items-center justify-between">
-                     <SheetTitle className="text-left font-heading font-black tracking-tighter text-2xl">Menu</SheetTitle>
-                     <ThemeToggle />
-                   </div>
-                   <SheetDescription className="text-left text-xs uppercase tracking-widest font-bold opacity-60">Webunica Shopify</SheetDescription>
-                </SheetHeader>
-                
-                <div className="flex flex-col p-6 space-y-4">
-                   <Link 
-                     href="/" 
-                     onClick={() => setIsOpen(false)}
-                     className="flex items-center gap-4 p-4 rounded-2xl bg-primary/5 border border-primary/10 text-foreground font-bold text-[15px] tracking-tight hover:bg-primary hover:text-white transition-all group"
-                   >
-                     <Home className="w-5 h-5 opacity-40 group-hover:opacity-100" /> Inicio
-                   </Link>
-                   
-                   <div className="h-px bg-border/40 my-2" />
-
-                   {NAV_LINKS.map((link) => (
-                     <Link 
-                       key={link.href}
-                       href={link.href}
-                       onClick={() => setIsOpen(false)}
-                       className="flex items-center gap-4 p-4 rounded-2xl hover:bg-muted/50 text-brand-purple font-bold text-[15px] tracking-tight transition-all group"
-                     >
-                       <link.icon className="w-5 h-5 opacity-40 group-hover:opacity-100" /> {link.label}
-                     </Link>
-                   ))}
-
-                   <div className="h-px bg-border/40 my-2" />
-
-                   <Link 
-                     href="/login" 
-                     onClick={() => setIsOpen(false)}
-                     className="flex items-center gap-4 p-4 rounded-2xl hover:bg-muted/50 text-muted-foreground hover:text-foreground font-bold text-[15px] tracking-tight transition-all"
-                   >
-                     <CreditCard className="w-5 h-5 opacity-40" /> Mi Cuenta
-                   </Link>
-                </div>
-
-                <div className="absolute bottom-8 left-0 w-full px-8">
-                       <Link 
-                          href="/register" 
-                          onClick={() => setIsOpen(false)}
-                          className={cn(
-                            buttonVariants({ variant: "secondary" }),
-                            "w-full h-14 rounded-2xl brand-gradient border-0 text-white"
-                          )}
-                       >
-                          Cotizar Proyecto
-                       </Link>
-                </div>
-              </SheetContent>
-            </Sheet>
+            <button className={`${textColor} lg:hidden p-2`}>
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
           </div>
-        </div>
 
-        <AnimatePresence>
-          {showMegaMenu && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.15 } }}
-              className="absolute top-full left-0 w-full pt-2 pointer-events-none z-50"
-              onMouseEnter={() => setShowMegaMenu(true)}
-              onMouseLeave={() => setShowMegaMenu(false)}
-            >
-              <div className="container max-w-7xl mx-auto px-4 pointer-events-auto">
-                 <MegaMenu ads={megaMenuAds} onClose={() => setShowMegaMenu(false)} />
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        </div>
       </div>
-    </motion.header>
+    </header>
   );
 }

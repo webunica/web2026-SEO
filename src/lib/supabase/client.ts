@@ -1,14 +1,6 @@
-import { createBrowserClient } from '@supabase/ssr'
-import { mockSupabaseClient } from './mock-client'
+import { createClient } from '@supabase/supabase-js';
 
-export function createClient() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 
-  if (!url || !key) {
-    console.warn("Supabase credentials missing on Client. Check .env or Vercel Settings.");
-    return mockSupabaseClient as any;
-  }
-
-  return createBrowserClient(url, key)
-}
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
