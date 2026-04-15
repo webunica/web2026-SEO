@@ -102,7 +102,7 @@ export default function Page() {
               <p className="text-zinc-600 mb-8 leading-relaxed text-lg">
                 Desarrollamos tiendas Shopify modernas, rápidas y orientadas a la conversión, con estructura SEO lista para crecer y rankear desde el primer mes.
               </p>
-              <Link href="/desarrollo-tiendas-shopify-chile/" className="inline-flex items-center text-[#4f46e5] font-bold hover:text-blue-800 transition-colors">
+              <Link href="/desarrollo-tiendas-shopify-chile" className="inline-flex items-center text-[#4f46e5] font-bold hover:text-blue-800 transition-colors">
                 Ver Servicio 
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -123,7 +123,7 @@ export default function Page() {
               <p className="text-zinc-600 mb-8 leading-relaxed text-lg">
                 Creamos desarrollo eCommerce flexible sobre WordPress y WooCommerce, ideal para proyectos que requieren 100% de propiedad e integraciones avanzadas B2B/B2C.
               </p>
-              <Link href="/desarrollo-tienda-en-linea-woocommerce/" className="inline-flex items-center text-[#4f46e5] font-bold hover:text-blue-800 transition-colors">
+              <Link href="/desarrollo-tienda-en-linea-woocommerce" className="inline-flex items-center text-[#4f46e5] font-bold hover:text-blue-800 transition-colors">
                 Ver Servicios 
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -144,7 +144,7 @@ export default function Page() {
               <p className="text-zinc-600 mb-8 leading-relaxed text-lg">
                 Diseñamos y programamos páginas web corporativas rápidas para que las empresas y pymes puedan rankear orgánicamente sin perder diseño visual Premium.
               </p>
-              <Link href="/desarrollo-paginas-web-pymes-chile/" className="inline-flex items-center text-[#4f46e5] font-bold hover:text-blue-800 transition-colors">
+              <Link href="/desarrollo-paginas-web-pymes-chile" className="inline-flex items-center text-[#4f46e5] font-bold hover:text-blue-800 transition-colors">
                 Ver Servicio 
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -165,7 +165,7 @@ export default function Page() {
               <p className="text-zinc-600 mb-8 leading-relaxed text-lg">
                 Sistemas de academias e-learning sobre Tutor LMS. Arquitectura sólida para venta automatizada de cursos, embudos de venta y experiencias interactivas.
               </p>
-              <Link href="/desarrollo-diseno-elearning-tutor-lms/" className="inline-flex items-center text-[#4f46e5] font-bold hover:text-blue-800 transition-colors">
+              <Link href="/desarrollo-diseno-elearning-tutor-lms" className="inline-flex items-center text-[#4f46e5] font-bold hover:text-blue-800 transition-colors">
                 Ver Servicios 
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

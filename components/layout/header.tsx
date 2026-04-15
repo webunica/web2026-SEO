@@ -17,7 +17,12 @@ export default function Header() {
   }, []);
 
   // Determinar si debemos usar texto claro u oscuro basado en la página si no hemos hecho scroll
-  const isDarkHero = pathname === '/desarrollo-tiendas-shopify-chile/' || pathname === '/desarrollo-tienda-en-linea-woocommerce/' || pathname === '/desarrollo-diseno-elearning-tutor-lms/';
+  const isDarkHero = pathname === '/desarrollo-tiendas-shopify-chile' || 
+                    pathname === '/desarrollo-tienda-en-linea-woocommerce' || 
+                    pathname === '/desarrollo-diseno-elearning-tutor-lms' ||
+                    pathname === '/tienda-dropshipping-shopify-dropi' ||
+                    pathname === '/calculadora-de-campana-meta-ads-facebook';
+  
   const textColor = scrolled ? 'text-zinc-900' : (isDarkHero ? 'text-white' : 'text-[#2d3748]');
   const logoColor = scrolled ? 'text-zinc-900' : (isDarkHero ? 'text-white' : 'text-[#2d3748]');
   const logoAccent = scrolled ? 'border-zinc-900' : (isDarkHero ? 'border-white' : 'border-[#2d3748]');
@@ -55,29 +60,56 @@ export default function Header() {
               
               <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-72 bg-white border border-zinc-100 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
                 <div className="flex flex-col py-3">
-                  <Link href="/desarrollo-tiendas-shopify-chile/" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-[#a1fcd8]/30 hover:text-teal-900 transition-colors flex items-center gap-3">
+                  <Link href="/desarrollo-tiendas-shopify-chile" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-[#a1fcd8]/30 hover:text-teal-900 transition-colors flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-[#95bf47]"></div>
                     Tiendas Shopify
                   </Link>
-                  <Link href="/desarrollo-tienda-en-linea-woocommerce/" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-purple-100/50 hover:text-purple-900 transition-colors flex items-center gap-3">
+                  <Link href="/desarrollo-tienda-en-linea-woocommerce" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-purple-100/50 hover:text-purple-900 transition-colors flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-purple-500"></div>
                     WooCommerce Empresas
                   </Link>
-                  <Link href="/desarrollo-paginas-web-pymes-chile/" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-blue-100/50 hover:text-blue-900 transition-colors flex items-center gap-3">
+                  <Link href="/desarrollo-paginas-web-pymes-chile" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-blue-100/50 hover:text-blue-900 transition-colors flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                     Sitios Web Pymes
                   </Link>
-                  <Link href="/desarrollo-diseno-elearning-tutor-lms/" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-orange-100/50 hover:text-orange-900 transition-colors flex items-center gap-3">
+                  <Link href="/desarrollo-diseno-elearning-tutor-lms" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-orange-100/50 hover:text-orange-900 transition-colors flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-orange-500"></div>
                     Academias Tutor LMS
+                  </Link>
+                  <div className="border-t border-zinc-50 my-1"></div>
+                  <Link href="/diseno-paginas-web-inmobiliaria" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 transition-colors flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-zinc-900"></div>
+                    Inmobiliarias Premium
+                  </Link>
+                  <Link href="/desarrollo-pagina-web-funeraria" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 transition-colors flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-zinc-400"></div>
+                    Funerarias & Obituarios
+                  </Link>
+                  <Link href="/tienda-dropshipping-shopify-dropi" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-purple-50 hover:text-purple-900 transition-colors flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-purple-400"></div>
+                    Dropshipping Shopi+Dropi
                   </Link>
                 </div>
               </div>
             </div>
 
-            <Link href="/cotizador-en-linea-desarrollo-web" className={`${textColor} font-bold hover:opacity-70 transition-opacity text-sm uppercase tracking-wide`}>
-              Calculadora
-            </Link>
+            {/* Herramientas Dropdown */}
+            <div className="relative group">
+              <button className={`${textColor} font-bold hover:opacity-70 transition-opacity flex items-center gap-1 text-sm uppercase tracking-wide py-4`}>
+                Simuladores
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
+              </button>
+              <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-72 bg-white border border-zinc-100 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
+                <div className="flex flex-col py-3">
+                  <Link href="/cotizador-en-linea-desarrollo-web" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-zinc-100 transition-colors">
+                    Calculadora Presupuesto Web
+                  </Link>
+                  <Link href="/calculadora-de-campana-meta-ads-facebook" className="px-6 py-4 text-sm font-bold text-zinc-700 hover:bg-zinc-100 transition-colors">
+                    Calculadora Meta Ads ROI
+                  </Link>
+                </div>
+              </div>
+            </div>
             
             <Link href="/contacto" className={`${textColor} font-bold hover:opacity-70 transition-opacity text-sm uppercase tracking-wide`}>
               Contacto

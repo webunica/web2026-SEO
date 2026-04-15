@@ -35,23 +35,38 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-6">Servicios Destacados</h4>
             <ul className="space-y-4">
               <li>
-                <Link href="/desarrollo-tiendas-shopify-chile/" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                <Link href="/desarrollo-tiendas-shopify-chile" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
                   Diseño Web Shopify
                 </Link>
               </li>
               <li>
-                <Link href="/desarrollo-tienda-en-linea-woocommerce/" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                <Link href="/desarrollo-tienda-en-linea-woocommerce" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
                   Tiendas WooCommerce
                 </Link>
               </li>
               <li>
-                <Link href="/desarrollo-paginas-web-pymes-chile/" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                <Link href="/desarrollo-paginas-web-pymes-chile" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
                   Páginas Web PYMES
                 </Link>
               </li>
               <li>
-                <Link href="/desarrollo-diseno-elearning-tutor-lms/" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                <Link href="/desarrollo-diseno-elearning-tutor-lms" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
                   E-learning y Academias
+                </Link>
+              </li>
+              <li>
+                <Link href="/diseno-paginas-web-inmobiliaria" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                  Diseño Inmobiliario
+                </Link>
+              </li>
+              <li>
+                <Link href="/desarrollo-pagina-web-funeraria" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                  Diseño para Funerarias
+                </Link>
+              </li>
+              <li>
+                <Link href="/tienda-dropshipping-shopify-dropi" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                  Dropshipping Shopi+Dropi
                 </Link>
               </li>
             </ul>
