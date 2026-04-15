@@ -92,8 +92,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/proyectos-paginas-y-sitios-web/" className="text-sm text-zinc-400 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
-                  Nuestro Portafolio
+                <Link href="/portafolio" className="text-sm font-bold text-zinc-300 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-zinc-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100 pb-1 inline-block">
+                  Casos de Éxito & Portafolio
                 </Link>
               </li>
               <li>
@@ -148,6 +148,14 @@ export default function Footer() {
           <p className="text-zinc-500 text-sm">
             © {new Date().getFullYear()} WebUnica. Todos los derechos reservados.
           </p>
+          <ul className="flex gap-6">
+            <li>
+              <Link href="/" className="text-sm text-zinc-400 hover:text-white transition-colors">Inicio</Link>
+            </li>
+            <li>
+              <Link href="/contacto" className="text-sm text-zinc-400 hover:text-white transition-colors">Contacto</Link>
+            </li>
+          </ul>
           <div className="flex gap-6">
             <Link href="/terminos-y-condiciones-de-servicios/" className="text-zinc-500 hover:text-white text-sm transition-colors">
               Términos

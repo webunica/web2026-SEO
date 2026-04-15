@@ -21,7 +21,8 @@ export default function Header() {
                     pathname === '/desarrollo-tienda-en-linea-woocommerce' || 
                     pathname === '/desarrollo-diseno-elearning-tutor-lms' ||
                     pathname === '/tienda-dropshipping-shopify-dropi' ||
-                    pathname === '/calculadora-de-campana-meta-ads-facebook';
+                    pathname === '/calculadora-de-campana-meta-ads-facebook' ||
+                    pathname === '/portafolio';
   
   const textColor = scrolled ? 'text-zinc-900' : (isDarkHero ? 'text-white' : 'text-[#2d3748]');
   const logoColor = scrolled ? 'text-zinc-900' : (isDarkHero ? 'text-white' : 'text-[#2d3748]');
@@ -118,6 +119,10 @@ export default function Header() {
                 </div>
               </div>
             </div>
+            
+            <Link href="/portafolio" className={`${textColor} font-bold hover:opacity-70 transition-opacity text-sm uppercase tracking-wide`}>
+              Portafolio
+            </Link>
             
             <Link href="/contacto" className={`${textColor} font-bold hover:opacity-70 transition-opacity text-sm uppercase tracking-wide`}>
               Contacto
