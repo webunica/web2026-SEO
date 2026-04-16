@@ -1,11 +1,12 @@
+"use client";
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Calendar, Clock, ArrowRight } from 'lucide-react';
+import WhatsAppButton from '@/components/ui/whatsapp-button';
 
-export const metadata: Metadata = {
-  title: 'Contacto | Agencia Webunica Chile',
-  description: 'Contáctanos para transformar tu negocio. Agencia de ingeniería web y Shopify expertos en Chile.',
-};
+// Note: Metadata cannot be exported from client components. 
+// Handled by layout or parent for title/description if needed.
 
 export default function ContactPage() {
   return (
@@ -50,7 +51,7 @@ export default function ContactPage() {
                     </div>
                   </a>
                   
-                  <a href="https://wa.me/56984410379" target="_blank" rel="noreferrer" className="flex items-start gap-5 group p-4 -ml-4 rounded-2xl hover:bg-slate-50 transition-colors">
+                  <WhatsAppButton className="flex items-start gap-5 group p-4 -ml-4 rounded-2xl hover:bg-slate-50 transition-colors w-full text-left">
                     <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all">
                       <Phone className="w-6 h-6" />
                     </div>
@@ -58,8 +59,8 @@ export default function ContactPage() {
                       <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400 mb-1">WhatsApp & Teléfono</h3>
                       <p className="text-lg font-bold text-zinc-900 group-hover:text-emerald-600 transition-colors">+56 9 8441 0379</p>
                     </div>
-                  </a>
-
+                  </WhatsAppButton>
+ 
                   <div className="flex items-start gap-5 p-4 -ml-4">
                     <div className="w-14 h-14 bg-slate-50 text-slate-600 rounded-full flex items-center justify-center shrink-0">
                       <MapPin className="w-6 h-6" />
@@ -78,15 +79,12 @@ export default function ContactPage() {
                 <p className="text-slate-500 font-light mb-6">
                   Mándanos un mensaje directamente a nuestro WhatsApp y serás contactado por uno de nuestros consultores de ingeniería web en minutos.
                 </p>
-                <a 
-                  href="https://wa.me/56984410379?text=Hola%20equipo%20Webunica,%20estoy%20interesado%20en%20sus%20servicios" 
-                  target="_blank" 
-                  rel="noreferrer"
+                <WhatsAppButton 
                   className="w-full inline-flex justify-center items-center gap-2 px-6 py-4 bg-zinc-900 text-white rounded-xl font-bold uppercase tracking-widest text-[11px] hover:bg-violet-600 transition-all shadow-lg active:scale-95"
                 >
                   Abrir chat en WhatsApp
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </WhatsAppButton>
               </div>
             </div>
 
