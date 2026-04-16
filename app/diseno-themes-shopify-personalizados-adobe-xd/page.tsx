@@ -73,7 +73,7 @@ export default function ShopifyXDPage() {
               <div className="absolute -inset-4 bg-zinc-100 rounded-[3rem] -z-10 group-hover:bg-zinc-200/50 transition-colors" />
               <div className="rounded-[2.5rem] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)]">
                 <Image 
-                  src="/shopify_adobe_xd_design_process_1776266605892.png"
+                  src="/adobe_xd_shopify_workflow_premium_1776302052308.png"
                   alt="Adobe XD to Shopify Workflow"
                   width={800}
                   height={1000}

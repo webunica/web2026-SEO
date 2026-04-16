@@ -75,7 +75,7 @@ export default function ElearningPage() {
               <div className="absolute -inset-10 bg-indigo-50 rounded-full blur-[100px] -z-10" />
               <div className="rounded-[3rem] overflow-hidden border border-zinc-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] bg-white p-4">
                 <Image 
-                  src="/portfolio_elearning_premium_1776264477769.png"
+                  src="/elearning_platform_dashboard_tech_1776302112928.png"
                   alt="E-learning Platform Dashboard Showcase"
                   width={800}
                   height={800}

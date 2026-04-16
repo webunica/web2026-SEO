@@ -75,7 +75,7 @@ export default function WooCommercePage() {
               <div className="absolute -inset-10 bg-purple-50 rounded-full blur-[100px] -z-10" />
               <div className="rounded-[3rem] overflow-hidden border border-zinc-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] bg-white p-4">
                 <Image 
-                  src="/portfolio_woocommerce_premium_1776264357191.png"
+                  src="/woocommerce_enterprise_showcase_premium_1776302075589.png"
                   alt="WooCommerce Enterprise Store Showcase"
                   width={800}
                   height={800}
