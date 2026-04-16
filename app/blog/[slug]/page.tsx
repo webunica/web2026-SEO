@@ -11,6 +11,8 @@ interface PostPageProps {
   };
 }
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const post = await getPostBySlug(params.slug);
   if (!post) return { title: 'Post no encontrado' };
