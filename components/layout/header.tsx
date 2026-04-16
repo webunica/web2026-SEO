@@ -67,7 +67,7 @@ export default function Header() {
         }
       `}</style>
       
-      <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#f5f3ff]/70 backdrop-blur-md backdrop-saturate-150 border-b border-white/60 shadow-[0_8px_30px_rgba(139,92,246,0.08)] h-[95px]' : 'bg-transparent h-[116px]'} flex items-center`}>
+      <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#f5f3ff]/70 backdrop-blur-lg backdrop-saturate-150 border-b border-white/60 shadow-lg shadow-violet-900/5 h-[95px]' : `h-[116px] ${isDarkHero ? 'bg-transparent' : 'bg-[#f5f3ff]/80 backdrop-blur-sm border-b border-white/30'}`} flex items-center`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="flex items-center justify-between h-full">
             
@@ -97,7 +97,7 @@ export default function Header() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
                 </button>
                 
-                <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-zinc-100 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
+                <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-80 bg-white/85 backdrop-blur-md border border-white/50 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
                   <div className="flex flex-col py-3">
                     <Link href="/desarrollo-web-nextjs-saas-custom" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-violet-600"></div>
@@ -152,7 +152,7 @@ export default function Header() {
                   Herramientas
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
                 </button>
-                <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-72 bg-white border border-zinc-100 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
+                <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-72 bg-white/85 backdrop-blur-md border border-white/50 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
                   <div className="flex flex-col py-3">
                     <Link href="/cotizador-en-linea-desarrollo-web" className="px-6 py-4 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors">
                       Calculadora Presupuesto Web
