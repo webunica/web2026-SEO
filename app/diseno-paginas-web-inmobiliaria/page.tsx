@@ -81,7 +81,7 @@ export default function RealEstatePage() {
               <div className="absolute -inset-10 bg-zinc-200/50 rounded-full blur-[100px] -z-10 group-hover:bg-zinc-300/50 transition-colors" />
               <div className="relative rounded-[3rem] overflow-hidden border border-zinc-100 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)]">
                 <Image 
-                  src="/luxury_real_estate_web_design_premium_1776302142384.png"
+                  src="/real_estate_hero_new.png"
                   alt="Luxury Real Estate Web Design"
                   width={800}
                   height={800}
