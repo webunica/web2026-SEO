@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { createClient } from '@/utils/supabase/client';
+import { supabase } from '@/lib/supabase/client';
 
 interface WhatsAppModalProps {
   isOpen: boolean;
@@ -20,7 +20,6 @@ export default function WhatsAppModal({ isOpen, onClose }: WhatsAppModalProps) {
     email: ""
   });
 
-  const supabase = createClient();
 
   useEffect(() => {
     if (!isOpen) {
@@ -43,21 +42,27 @@ export default function WhatsAppModal({ isOpen, onClose }: WhatsAppModalProps) {
 
     setLoading(true);
     try {
-      // 1. Guardar en Supabase
-      const { error } = await supabase
-        .from('leads')
-        .insert([
-          {
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.email || null,
-            project_type: formData.interest,
-            source: 'WhatsApp Widget',
-            status: 'new'
-          }
-        ]);
+    // 1. Guardar en Supabase (si está configurado)
+    if (supabase) {
+      try {
+        const { error } = await supabase
+          .from('leads')
+          .insert([
+            {
+              name: formData.name,
+              phone: formData.phone,
+              email: formData.email || null,
+              project_type: formData.interest,
+              source: 'WhatsApp Widget',
+              status: 'new'
+            }
+          ]);
 
-      if (error) throw error;
+        if (error) console.error('Supabase error:', error);
+      } catch (err) {
+        console.error('Error saving lead to Supabase:', err);
+      }
+    }
 
       // 2. Redirigir a WhatsApp
       const message = `Hola Webunica! Mi nombre es ${formData.name}. Me interesa: ${formData.interest}. Mi número es ${formData.phone}${formData.email ? ` y mi email es ${formData.email}` : ""}. Vengo de su sitio web y me gustaría conversar los detalles.`;
