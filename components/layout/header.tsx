@@ -62,6 +62,9 @@ export default function Header() {
           filter: grayscale(1);
           transition: filter 1s ease-in-out;
         }
+        .violet-filter {
+          filter: brightness(0) saturate(100%) invert(26%) sepia(89%) saturate(4156%) hue-rotate(261deg) brightness(101%) contrast(103%);
+        }
         .group:hover .gris-img, .gris-img:hover {
           filter: grayscale(0);
         }
@@ -77,7 +80,7 @@ export default function Header() {
                 <img 
                   src="https://webunica.cl/wp-content/uploads/2024/01/logo-webunica.png.webp" 
                   alt="Webunica Agencia" 
-                  className={`h-10 w-auto gris-img transition-all duration-500 group-hover:scale-105 ${isDarkHero && !scrolled ? 'brightness-0 invert opacity-100' : 'brightness-[0.1] opacity-100'}`}
+                  className={`h-10 w-auto transition-all duration-500 group-hover:scale-105 ${isDarkHero && !scrolled ? 'violet-filter' : 'brightness-[0.1] opacity-100 gris-img'}`}
                   width={135}
                   height={36}
                 />
