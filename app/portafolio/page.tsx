@@ -181,15 +181,6 @@ export default function PortfolioPage() {
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
               Transformamos marcas a través de ingeniería web de élite. Explora cómo hemos impulsado a más de 50 empresas en Chile y el mundo.
             </p>
-            <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/5">
-                <Image 
-                    src="/portfolio_showcase_premium_1776268133984.png"
-                    alt="Webunica Portfolio Showcase"
-                    width={1200}
-                    height={600}
-                    className="w-full h-auto"
-                />
-            </div>
           </div>
         </section>
 
