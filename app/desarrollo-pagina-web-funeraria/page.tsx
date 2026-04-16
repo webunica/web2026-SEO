@@ -75,7 +75,7 @@ export default function FuneralPage() {
             <div className="absolute -inset-4 bg-zinc-100 rounded-[4rem] -z-10 group-hover:bg-zinc-200/50 transition-colors" />
             <div className="rounded-[3rem] overflow-hidden border border-zinc-100 shadow-2xl">
               <Image 
-                src="/funeraria_premium_obituary_1776265975527.png"
+                src="/digital_obituary_platform_premium_1776302696121.png"
                 alt="Digital Obituary Platform Showcase"
                 width={1200}
                 height={700}
