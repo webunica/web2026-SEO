@@ -1,0 +1,54 @@
+import { MetadataRoute } from 'next';
+import { getPublishedPosts } from '@/lib/blog';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://webunica.cl';
+
+  // 1. Fetch dynamic blog posts
+  const posts = await getPublishedPosts();
+  const blogUrls = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.updated_at || post.created_at),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
+  // 2. Main static routes
+  const mainRoutes = [
+    '',
+    '/blog',
+    '/contacto',
+    '/portafolio',
+    '/desarrollo-web-nextjs-saas-custom',
+    '/desarrollo-tiendas-shopify-chile',
+    '/servicios-seo-posicionamiento-google',
+    '/desarrollo-tienda-en-linea-woocommerce',
+    '/desarrollo-paginas-web-pymes-chile',
+    '/diseno-themes-shopify-personalizados-adobe-xd',
+    '/diseno-paginas-web-inmobiliaria',
+    '/desarrollo-pagina-web-funeraria',
+    '/tienda-dropshipping-shopify-dropi',
+    '/cotizador-en-linea-desarrollo-web',
+    '/calculadora-de-campana-meta-ads-facebook',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: route === '' ? 1.0 : 0.8,
+  }));
+
+  // 3. City landing pages
+  const cities = [
+    'santiago', 'concepcion', 'temuco', 'valdivia', 'puerto-montt', 
+    'antofagasta', 'iquique', 'la-serena', 'rancagua', 'osorno', 
+    'ancud', 'punta-arenas'
+  ];
+  const cityUrls = cities.map((city) => ({
+    url: `${baseUrl}/diseno-paginas-web/${city}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  return [...mainRoutes, ...blogUrls, ...cityUrls];
+}

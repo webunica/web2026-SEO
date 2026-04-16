@@ -2,13 +2,16 @@
 
 CREATE TABLE IF NOT EXISTS public.leads (
     id UUID DEFAULT extensions.uuid_generate_v4() PRIMARY KEY,
+    name TEXT,
     email TEXT NOT NULL,
+    phone TEXT,
+    city TEXT,
     project_type TEXT NOT NULL,
     ecommerce_platform TEXT,
     design_level TEXT,
     timeline TEXT,
     budget_estimated NUMERIC,
-    source TEXT DEFAULT 'Calculadora Webunica',
+    source TEXT DEFAULT 'Webunica Website',
     status TEXT DEFAULT 'new', -- 'new', 'contacted', 'closed'
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );

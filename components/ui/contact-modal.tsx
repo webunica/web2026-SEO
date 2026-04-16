@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { createLead } from '@/lib/lead-actions';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -18,22 +18,39 @@ export default function ContactModal({ isOpen, onClose, city = "" }: ContactModa
   });
   const [isSending, setIsSending] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState('');
 
   if (!isOpen) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSending(true);
+    setError('');
     
-    // Simulación de envío de lead
-    setTimeout(() => {
+    try {
+      const response = await createLead({
+        name: formData.nombre,
+        email: formData.correo,
+        phone: formData.telefono,
+        city: formData.ciudad,
+        project_type: formData.servicio,
+        source: city ? `Lead Ciudad: ${city}` : 'Modal Web'
+      });
+
+      if (response.success) {
+        setIsSuccess(true);
+        setTimeout(() => {
+          setIsSuccess(false);
+          onClose();
+        }, 3000);
+      } else {
+        setError(response.error || 'Error al enviar el mensaje.');
+      }
+    } catch (err) {
+      setError('Error de conexión. Intenta nuevamente.');
+    } finally {
       setIsSending(false);
-      setIsSuccess(true);
-      setTimeout(() => {
-        setIsSuccess(false);
-        onClose();
-      }, 3000);
-    }, 1500);
+    }
   };
 
   return (
@@ -134,6 +151,12 @@ export default function ContactModal({ isOpen, onClose, city = "" }: ContactModa
                     </select>
                   </div>
                 </div>
+
+                {error && (
+                  <div className="bg-red-50 border border-red-100 text-red-600 text-[10px] font-bold uppercase p-4 rounded-xl text-center">
+                    ⚠️ {error}
+                  </div>
+                )}
 
                 <button 
                   type="submit"
