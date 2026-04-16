@@ -1,0 +1,21 @@
+-- Habilitar RLS en la tabla de Blog
+ALTER TABLE public.webunica_blog_posts ENABLE ROW LEVEL SECURITY;
+
+-- Eliminar políticas antiguas para evitar conflictos
+DROP POLICY IF EXISTS "Posts anon insert" ON public.webunica_blog_posts;
+
+-- Crear política que permite insertar posts (para el administrador o el sistema)
+CREATE POLICY "Posts anon insert"
+ON public.webunica_blog_posts
+FOR INSERT 
+TO anon, authenticated
+WITH CHECK (true);
+
+-- IMPORTANTE: Permitir también la LECTURA para que el sistema 
+-- confirme que se guardó correctamente
+DROP POLICY IF EXISTS "Posts public read" ON public.webunica_blog_posts;
+CREATE POLICY "Posts public read"
+ON public.webunica_blog_posts
+FOR SELECT
+TO anon, authenticated
+USING (true);
