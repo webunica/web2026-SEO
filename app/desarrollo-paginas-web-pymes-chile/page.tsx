@@ -51,22 +51,36 @@ export default function PymesPage() {
       <main className="pt-32 pb-20">
         {/* Pymes Hero */}
         <section className="max-w-7xl mx-auto px-6 py-20 lg:py-32">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-            <span className="inline-block px-4 py-1.5 mb-8 text-xs font-bold tracking-widest text-zinc-400 uppercase bg-zinc-50 rounded-full border border-zinc-100">
-              Crecimiento Digital para Emprendedores
-            </span>
-            <h1 className="text-6xl lg:text-[7rem] font-black tracking-tighter leading-[0.9] mb-10 uppercase">
-              TU WEB <br/><span className="text-zinc-400">A OTRO NIVEL</span>
-            </h1>
-            <p className="text-xl text-zinc-500 mb-12 max-w-2xl leading-relaxed font-light">
-              Llegó el momento de profesionalizar tu marca. Creamos sitios web que no solo se ven bien, sino que trabajan por ti las 24 horas captando nuevos clientes.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-               <LeadButton 
-                className="px-12 py-5 bg-zinc-950 text-white font-bold rounded-2xl hover:bg-zinc-800 transition-all shadow-xl"
-               >
-                  Consultoría de Digitalización
-               </LeadButton>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="inline-block px-4 py-1.5 mb-8 text-xs font-bold tracking-widest text-zinc-400 uppercase bg-zinc-50 rounded-full border border-zinc-100">
+                Crecimiento Digital para Emprendedores
+              </span>
+              <h1 className="text-4xl lg:text-[7rem] font-black tracking-tighter leading-[0.9] mb-10 uppercase">
+                TU WEB <br/><span className="text-zinc-400">A OTRO NIVEL</span>
+              </h1>
+              <p className="text-xl text-zinc-500 mb-12 max-w-xl leading-relaxed font-light text-pretty">
+                Llegó el momento de profesionalizar tu marca. Creamos sitios web que no solo se ven bien, sino que trabajan por ti las 24 horas captando nuevos clientes.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6">
+                 <LeadButton 
+                  className="px-12 py-5 bg-zinc-950 text-white font-bold rounded-2xl hover:bg-zinc-800 transition-all shadow-xl"
+                 >
+                    Consultoría de Digitalización
+                 </LeadButton>
+              </div>
+            </div>
+            <div className="relative group">
+               <div className="absolute -inset-10 bg-zinc-50 rounded-full blur-[100px] -z-10" />
+               <div className="rounded-[3rem] overflow-hidden border border-zinc-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] bg-white p-4">
+                 <Image 
+                   src="/pymes_hero_new.png"
+                   alt="Diseño Web Profesional para Emprendedores"
+                   width={800}
+                   height={800}
+                   className="w-full h-auto rounded-[2rem] transform group-hover:scale-105 transition-transform duration-1000"
+                 />
+               </div>
             </div>
           </div>
         </section>
