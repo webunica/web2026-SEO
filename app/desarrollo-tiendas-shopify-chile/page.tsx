@@ -116,21 +116,21 @@ export default function ShopifyPage() {
       <main className="pt-20 lg:pt-32">
         {/* Shopify Hero */}
         <section className="max-w-7xl mx-auto px-6 py-20 lg:py-32 relative">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#95bf47]/10 blur-[120px] rounded-full -z-10 animate-pulse" />
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-violet-600/10 blur-[120px] rounded-full -z-10 animate-pulse" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div data-aos="fade-right">
-              <span className="inline-block px-4 py-1.5 mb-8 text-xs font-bold tracking-widest text-[#95bf47] uppercase bg-[#95bf47]/10 rounded-full border border-[#95bf47]/20">
+              <span className="inline-block px-4 py-1.5 mb-8 text-xs font-bold tracking-widest text-violet-600 uppercase bg-violet-50 rounded-full border border-violet-100">
                 Shopify Expert Solutions
               </span>
               <h1 className="text-5xl lg:text-[85px] font-black tracking-tighter leading-[0.85] mb-10 uppercase text-zinc-950">
-                ESCALA TU <br/><span className="text-[#95bf47] font-serif italic lowercase font-light">Ecommerce</span>
+                ESCALA TU <br/><span className="text-violet-600 font-serif italic lowercase font-light">Ecommerce</span>
               </h1>
               <p className="text-xl text-zinc-500 mb-12 max-w-xl leading-relaxed text-pretty font-light">
                 No construimos solo tiendas rápidas; creamos ecosistemas de venta automatizados en **Shopify** diseñados para maximizar tu retorno de inversión desde el primer día.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                  <LeadButton 
-                  className="px-10 py-5 bg-[#95bf47] text-white rounded-2xl font-bold text-center hover:bg-[#82a63d] transition-all shadow-2xl shadow-[#95bf47]/30 scale-100 hover:scale-105 active:scale-95"
+                  className="px-10 py-5 bg-violet-600 text-white rounded-2xl font-bold text-center hover:bg-violet-700 transition-all shadow-2xl shadow-violet-600/30 scale-100 hover:scale-105 active:scale-95"
                  >
                     Sesión Estratégica Shopify
                  </LeadButton>
@@ -140,8 +140,8 @@ export default function ShopifyPage() {
               </div>
             </div>
             <div className="relative group" data-aos="zoom-in">
-               <div className="absolute -inset-10 bg-[#95bf47]/10 rounded-full blur-[100px] -z-10 group-hover:bg-[#95bf47]/20 transition-all duration-1000" />
-               <div className="rounded-[4rem] overflow-hidden border border-zinc-100 shadow-[0_50px_100px_-20px_rgba(149,191,71,0.15)] bg-white p-6 md:p-10 transform -rotate-2 group-hover:rotate-0 transition-transform duration-700">
+               <div className="absolute -inset-10 bg-violet-500/10 rounded-full blur-[100px] -z-10 group-hover:bg-violet-500/20 transition-all duration-1000" />
+               <div className="rounded-[4rem] overflow-hidden border border-zinc-100 shadow-[0_50px_100px_-20px_rgba(124,58,237,0.15)] bg-white p-6 md:p-10 transform -rotate-2 group-hover:rotate-0 transition-transform duration-700">
                  <Image 
                    src="/shopify_hero_card.png"
                    alt="Shopify Expert Showcase"
@@ -158,16 +158,16 @@ export default function ShopifyPage() {
 
         {/* Lead Magnet Section */}
         <section className="py-24 bg-zinc-950 mx-4 rounded-[4rem] relative overflow-hidden group">
-           <div className="absolute inset-0 bg-gradient-to-br from-[#95bf47]/10 to-transparent pointer-events-none" />
+           <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-transparent pointer-events-none" />
            <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
               <h2 className="text-4xl lg:text-5xl font-black text-white mb-8 tracking-tighter uppercase">
                 ¿Listo para despegar en Shopify?
               </h2>
               <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-                Obtén un <span className="text-[#95bf47] font-bold">10% de DESCUENTO</span> directo en tu cotización al dejarnos tu correo. Hagamos que tu marca destaque.
+                Obtén un <span className="text-violet-400 font-bold">10% de DESCUENTO</span> directo en tu cotización al dejarnos tu correo. Hagamos que tu marca destaque.
               </p>
               <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-                 <LeadButton className="px-12 py-6 bg-[#95bf47] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-[#95bf47]/20 hover:scale-105 active:scale-95 transition-all">
+                 <LeadButton className="px-12 py-6 bg-violet-600 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-violet-600/40 hover:scale-105 active:scale-95 transition-all">
                     Reclamar mi 10% de descuento
                  </LeadButton>
               </div>
@@ -187,7 +187,7 @@ export default function ShopifyPage() {
                 { t: 'Soporte 24/7', d: 'Arquitectura en la nube que garantiza que tu tienda nunca se caiga.', icon: '⚡' },
                 { t: 'Marketing Automatizado', d: 'Integración plena con Facebook Ads, Google Shopping y TikTok.', icon: '📊' }
               ].map((f, i) => (
-                <div key={i} className="bg-zinc-50 p-10 rounded-[3rem] border border-zinc-100 hover:bg-white hover:border-[#95bf47] hover:shadow-2xl hover:shadow-[#95bf47]/10 transition-all group">
+                <div key={i} className="bg-zinc-50 p-10 rounded-[3rem] border border-zinc-100 hover:bg-white hover:border-violet-200 hover:shadow-2xl hover:shadow-violet-600/5 transition-all group">
                    <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform">{f.icon}</div>
                    <h3 className="text-xl font-bold mb-4 text-zinc-950">{f.t}</h3>
                    <p className="text-zinc-500 text-sm leading-relaxed font-light">{f.d}</p>
@@ -198,25 +198,25 @@ export default function ShopifyPage() {
 
         {/* Pricing Section */}
         <section id="pricing" className="py-32 bg-[#fcfcfc] border-y border-zinc-100 relative overflow-hidden">
-           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-[#95bf47]/5 blur-[100px] rounded-full" />
+           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-violet-600/5 blur-[100px] rounded-full" />
            <div className="max-w-7xl mx-auto px-6">
               <div className="text-center mb-24">
-                 <span className="text-xs font-black tracking-[0.3em] text-[#95bf47] uppercase mb-4 block">Inversión Inteligente</span>
+                 <span className="text-xs font-black tracking-[0.3em] text-violet-600 uppercase mb-4 block">Inversión Inteligente</span>
                  <h2 className="text-4xl lg:text-7xl font-black tracking-tighter uppercase mb-10 text-zinc-950">Planes Shopify 2026</h2>
                  <p className="text-xl text-zinc-500 max-w-3xl mx-auto font-light leading-relaxed">Soluciones escalables diseñadas para cada etapa de tu negocio. Sin costos ocultos.</p>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                  {plans.map((plan, i) => (
-                   <div key={i} className={`relative bg-white rounded-[4rem] p-10 lg:p-14 border transition-all ${plan.recommended ? 'border-[#95bf47] shadow-2xl shadow-[#95bf47]/10 scale-105 z-10' : 'border-zinc-100 hover:border-zinc-300'}`}>
+                   <div key={i} className={`relative bg-white rounded-[4rem] p-10 lg:p-14 border-2 transition-all duration-500 hover:translate-y-[-10px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(124,58,237,0.1)] ${plan.recommended ? 'border-violet-500' : 'border-zinc-100 hover:border-violet-200'}`}>
                       {plan.recommended && (
-                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 px-6 py-2 bg-[#95bf47] text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">
+                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">
                           Más Elegido
                         </div>
                       )}
                       <div className="mb-10">
                         <h3 className="text-2xl font-black text-zinc-900 mb-2 uppercase">{plan.name}</h3>
-                        <p className="text-xs font-bold text-[#95bf47] uppercase tracking-wider mb-6">{plan.highlight}</p>
+                        <p className="text-xs font-bold text-violet-500 uppercase tracking-wider mb-6">{plan.highlight}</p>
                         <div className="flex flex-col gap-1">
                           <div className="flex items-baseline gap-2">
                             <span className="text-5xl font-black tracking-tight">{plan.price}</span>
@@ -234,8 +234,8 @@ export default function ShopifyPage() {
                       <ul className="space-y-4 mb-12">
                          {plan.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-4 text-sm text-zinc-600 font-light">
-                               <div className="w-5 h-5 rounded-full bg-[#95bf47]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                 <svg className="w-3 h-3 text-[#95bf47]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+                               <div className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                 <svg className="w-3 h-3 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                                </div>
                                {feature}
                             </li>
@@ -243,7 +243,7 @@ export default function ShopifyPage() {
                       </ul>
 
                       <div className="mt-auto space-y-4">
-                         <LeadButton className={`w-full py-5 rounded-2xl font-bold text-center transition-all ${plan.recommended ? 'bg-[#95bf47] text-white shadow-xl shadow-[#95bf47]/20 hover:bg-[#82a63d]' : 'bg-zinc-950 text-white hover:bg-zinc-800'}`}>
+                         <LeadButton className={`w-full py-5 rounded-2xl font-bold text-center transition-all ${plan.recommended ? 'bg-violet-600 text-white shadow-xl shadow-violet-600/20 hover:bg-violet-700' : 'bg-zinc-950 text-white hover:bg-zinc-800'}`}>
                             {plan.cta}
                          </LeadButton>
                          <div className="flex items-center justify-center gap-2 text-[10px] font-bold text-zinc-400 uppercase tracking-widest pt-4">
@@ -260,10 +260,10 @@ export default function ShopifyPage() {
         {/* Global CTA Section / Meetings */}
         <section className="py-32 max-w-7xl mx-auto px-6">
            <div className="bg-zinc-950 rounded-[5rem] p-12 lg:p-24 text-center relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(149,191,71,0.1),transparent)] pointer-events-none" />
+              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(124,58,237,0.1),transparent)] pointer-events-none" />
               <div className="relative z-10 max-w-4xl mx-auto">
                  <h2 className="text-4xl lg:text-7xl font-black text-white mb-10 tracking-tighter uppercase leading-[0.9]">
-                    ¿Prefieres una <br/><span className="text-[#95bf47] italic font-serif lowercase font-light">Atención Directa?</span>
+                    ¿Prefieres una <br/><span className="text-violet-400 italic font-serif lowercase font-light">Atención Directa?</span>
                  </h2>
                  <p className="text-xl text-zinc-400 mb-14 max-w-2xl mx-auto font-light leading-relaxed">
                     Agenda una reunión inicial o solicita tu cotización personalizada sin costo hoy mismo.
@@ -275,7 +275,7 @@ export default function ShopifyPage() {
                     <a 
                       href="https://calendly.com/javiermillar/reunion-webunica" 
                       target="_blank" 
-                      className="px-12 py-6 bg-[#95bf47] text-white font-black uppercase tracking-widest text-[11px] rounded-[2rem] hover:scale-105 active:scale-95 transition-all w-full md:w-auto flex items-center justify-center gap-3 shadow-2xl shadow-[#95bf47]/20"
+                      className="px-12 py-6 bg-violet-600 text-white font-black uppercase tracking-widest text-[11px] rounded-[2rem] hover:scale-105 active:scale-95 transition-all w-full md:w-auto flex items-center justify-center gap-3 shadow-2xl shadow-violet-600/40"
                     >
                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                        Agendar Reunión Inicial
