@@ -25,6 +25,7 @@ export default function Header() {
   // Páginas con Hero OSCURO (Texto Blanco)
   const darkPages = [
     '/desarrollo-web-nextjs-saas-custom',
+    '/contacto',
     '/servicios-seo-posicionamiento-google',
     '/calculadora-de-campana-meta-ads-facebook',
     '/tienda-dropshipping-shopify-dropi'
