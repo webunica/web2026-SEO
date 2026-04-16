@@ -25,7 +25,6 @@ export default function Header() {
   // Páginas con Hero OSCURO (Texto Blanco)
   const darkPages = [
     '/desarrollo-web-nextjs-saas-custom',
-    '/portafolio',
     '/servicios-seo-posicionamiento-google',
     '/calculadora-de-campana-meta-ads-facebook',
     '/tienda-dropshipping-shopify-dropi'
@@ -34,6 +33,7 @@ export default function Header() {
   // Páginas con Hero CLARO (Texto Violeta)
   const lightPages = [
     '/',
+    '/portafolio',
     '/desarrollo-tiendas-shopify-chile',
     '/desarrollo-tienda-en-linea-woocommerce',
     '/desarrollo-diseno-elearning-tutor-lms',
