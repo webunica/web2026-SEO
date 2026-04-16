@@ -77,7 +77,7 @@ export default function Header() {
                 <img 
                   src="https://webunica.cl/wp-content/uploads/2024/01/logo-webunica.png.webp" 
                   alt="Webunica Agencia" 
-                  className={`h-10 w-auto gris-img transition-all duration-500 group-hover:scale-105 ${isDarkHero && !scrolled ? 'brightness-0 invert opacity-90' : ''}`}
+                  className={`h-10 w-auto gris-img transition-all duration-500 group-hover:scale-105 ${isDarkHero && !scrolled ? 'brightness-0 invert opacity-90' : 'brightness-[0.1] opacity-90'}`}
                   width={135}
                   height={36}
                 />
@@ -86,56 +86,56 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-10">
-              <Link href="/" className={`${textColor} ${hoverColor} font-bold transition-all text-sm uppercase tracking-widest`}>
+              <Link href="/" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest`}>
                 Inicio
               </Link>
               
               {/* Servicios Dropdown */}
               <div className="relative group">
-                <button className={`${textColor} ${hoverColor} font-bold transition-all flex items-center gap-1 text-sm uppercase tracking-widest py-4`}>
+                <button className={`${textColor} ${hoverColor} font-bold transition-all flex items-center gap-1 text-[12px] uppercase tracking-widest py-4`}>
                   Servicios
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
                 </button>
                 
                 <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-80 bg-white/95 backdrop-blur-xl border border-zinc-100 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
                   <div className="flex flex-col py-3">
-                    <Link href="/desarrollo-web-nextjs-saas-custom" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/desarrollo-web-nextjs-saas-custom" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-violet-600"></div>
                       Next.js & SaaS a Medida
                     </Link>
-                    <Link href="/desarrollo-tiendas-shopify-chile" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/desarrollo-tiendas-shopify-chile" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-violet-500"></div>
                       Tiendas Shopify
                     </Link>
-                    <Link href="/diseno-themes-shopify-personalizados-adobe-xd" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/diseno-themes-shopify-personalizados-adobe-xd" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-violet-400"></div>
                       Shopify Themes (XD Design)
                     </Link>
-                    <Link href="/desarrollo-tienda-en-linea-woocommerce" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/desarrollo-tienda-en-linea-woocommerce" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-purple-500"></div>
                       WooCommerce Empresas
                     </Link>
-                    <Link href="/desarrollo-paginas-web-pymes-chile" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/desarrollo-paginas-web-pymes-chile" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                       Sitios Web Pymes
                     </Link>
-                    <Link href="/desarrollo-diseno-elearning-tutor-lms" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/desarrollo-diseno-elearning-tutor-lms" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-orange-500"></div>
                       Academias Tutor LMS
                     </Link>
-                    <Link href="/diseno-paginas-web-inmobiliaria" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/diseno-paginas-web-inmobiliaria" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-zinc-900"></div>
                       Inmobiliarias Premium
                     </Link>
-                    <Link href="/desarrollo-pagina-web-funeraria" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/desarrollo-pagina-web-funeraria" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-zinc-400"></div>
                       Funerarias & Obituarios
                     </Link>
-                    <Link href="/tienda-dropshipping-shopify-dropi" className="px-6 py-3 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
+                    <Link href="/tienda-dropshipping-shopify-dropi" className="px-6 py-3 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-violet-400"></div>
                       Dropshipping Shopi+Dropi
                     </Link>
-                    <Link href="/servicios-seo-posicionamiento-google" className="px-6 py-4 text-sm font-bold text-white bg-violet-600 hover:bg-zinc-900 transition-colors flex items-center justify-between group/seo">
+                    <Link href="/servicios-seo-posicionamiento-google" className="px-6 py-4 text-[15px] font-bold text-white bg-violet-600 hover:bg-zinc-900 transition-colors flex items-center justify-between group/seo">
                       <div className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
                         Auditoría & SEO Avanzado
@@ -148,31 +148,31 @@ export default function Header() {
 
               {/* Herramientas Dropdown */}
               <div className="relative group">
-                <button className={`${textColor} ${hoverColor} font-bold transition-all flex items-center gap-1 text-sm uppercase tracking-widest py-4`}>
+                <button className={`${textColor} ${hoverColor} font-bold transition-all flex items-center gap-1 text-[12px] uppercase tracking-widest py-4`}>
                   Herramientas
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
                 </button>
                 <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-72 bg-white border border-zinc-100 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
                   <div className="flex flex-col py-3">
-                    <Link href="/cotizador-en-linea-desarrollo-web" className="px-6 py-4 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors">
+                    <Link href="/cotizador-en-linea-desarrollo-web" className="px-6 py-4 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors">
                       Calculadora Presupuesto Web
                     </Link>
-                    <Link href="/calculadora-de-campana-meta-ads-facebook" className="px-6 py-4 text-[13px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors">
+                    <Link href="/calculadora-de-campana-meta-ads-facebook" className="px-6 py-4 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors">
                       Calculadora Meta Ads ROI
                     </Link>
                   </div>
                 </div>
               </div>
               
-              <Link href="/portafolio" className={`${textColor} ${hoverColor} font-bold transition-all text-sm uppercase tracking-widest`}>
+              <Link href="/portafolio" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest`}>
                 Portafolio
               </Link>
               
-              <Link href="/blog" className={`${textColor} ${hoverColor} font-bold transition-all text-sm uppercase tracking-widest`}>
+              <Link href="/blog" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest`}>
                 Blog
               </Link>
               
-              <Link href="/contacto" className={`${textColor} ${hoverColor} font-bold transition-all text-sm uppercase tracking-widest`}>
+              <Link href="/contacto" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest`}>
                 Contacto
               </Link>
             </nav>
