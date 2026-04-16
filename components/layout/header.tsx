@@ -72,12 +72,12 @@ export default function Header() {
           <div className="flex items-center justify-between h-full">
             
             {/* Logo Oficial Webunica */}
-            <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="group flex items-center">
+            <div className="flex-shrink-0 flex items-center relative z-20">
+              <Link href="/" className="group block focus:outline-none">
                 <img 
                   src="https://webunica.cl/wp-content/uploads/2024/01/logo-webunica.png.webp" 
                   alt="Webunica Agencia" 
-                  className={`h-10 w-auto gris-img transition-all duration-500 group-hover:scale-105 ${isDarkHero && !scrolled ? 'brightness-0 invert opacity-90' : 'brightness-[0.1] opacity-90'}`}
+                  className={`h-10 w-auto gris-img transition-all duration-500 group-hover:scale-105 ${isDarkHero && !scrolled ? 'brightness-0 invert opacity-100' : 'brightness-[0.1] opacity-100'}`}
                   width={135}
                   height={36}
                 />
@@ -86,7 +86,7 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-10 ml-16">
-              <Link href="/" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest`}>
+              <Link href="/" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest relative z-20`}>
                 Inicio
               </Link>
               
@@ -181,7 +181,7 @@ export default function Header() {
             <div className="flex items-center gap-4">
               <button 
                 onClick={() => openModal()}
-                className={`hidden md:flex items-center gap-2 px-8 py-4 rounded-full font-black text-[12px] uppercase tracking-[0.15em] transition-all transform hover:scale-105 shadow-xl ${scrolled ? 'bg-violet-600 text-white hover:bg-violet-700' : (isDarkHero ? 'bg-white text-zinc-950 hover:bg-zinc-200' : 'bg-black text-white hover:bg-zinc-800')}`}>
+                className={`hidden md:flex items-center gap-2 px-6 py-3 rounded-full font-black text-[10px] uppercase tracking-[0.15em] transition-all transform hover:scale-105 shadow-lg ${scrolled ? 'bg-violet-600 text-white hover:bg-violet-700 shadow-violet-600/20' : (isDarkHero ? 'bg-white text-zinc-950 hover:bg-zinc-200' : 'bg-black text-white hover:bg-zinc-800')}`}>
                 Cotizar Proyecto
               </button>
               
@@ -191,50 +191,88 @@ export default function Header() {
 
               <button 
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`${textColor} lg:hidden p-2 transition-transform h-12 w-12 flex items-center justify-center rounded-full hover:bg-black/5`}
+                className={`${textColor} lg:hidden relative z-[60] h-12 w-12 flex items-center justify-center rounded-full hover:bg-black/5 transition-all`}
                 aria-label="Menu"
               >
-                {isMobileMenuOpen ? (
-                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                ) : (
-                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-                )}
+                <div className="relative w-6 h-5">
+                  <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'top-2 rotate-45' : 'top-0'}`} />
+                  <span className={`absolute left-0 w-full h-0.5 bg-current top-2 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+                  <span className={`absolute left-0 w-full h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'top-2 -rotate-45' : 'top-4'}`} />
+                </div>
               </button>
             </div>
 
           </div>
         </div>
       </header>
+      {/* Modern Mobile Menu Overlay */}
+      <div className={`fixed inset-0 z-[50] lg:hidden transition-all duration-500 ${isMobileMenuOpen ? 'visible' : 'invisible'}`}>
+        {/* Background Blur Overlay */}
+        <div 
+          className={`absolute inset-0 bg-zinc-950/40 backdrop-blur-md transition-opacity duration-500 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+        
+        {/* Side Panel */}
+        <div className={`absolute top-0 right-0 h-full w-[85%] max-w-sm bg-white shadow-2xl transition-transform duration-500 ease-out flex flex-col ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="flex-grow flex flex-col pt-32 px-10 pb-12 overflow-y-auto">
+            <nav className="flex flex-col gap-8">
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="group border-b border-zinc-100 pb-6">
+                <span className="text-sm font-bold text-violet-600 uppercase tracking-[0.2em] block mb-1 opacity-60">Home</span>
+                <span className="text-4xl font-black text-zinc-900 uppercase tracking-tighter group-hover:text-violet-600 transition-colors">Inicio</span>
+              </Link>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 z-[45] bg-zinc-950/95 backdrop-blur-2xl transition-all duration-500 lg:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto shadow-[0_0_50px_rgba(139,92,246,0.3)]' : 'opacity-0 pointer-events-none'}`}>
-        <div className="flex flex-col h-full pt-32 px-8 pb-12 overflow-y-auto">
-          <nav className="flex flex-col gap-8 text-center sm:text-left">
-            <Link href="/" className="text-4xl font-black text-white uppercase tracking-tighter hover:text-violet-500 transition-colors">Inicio</Link>
-            <div className="space-y-4">
-              <span className="text-zinc-500 font-bold uppercase tracking-widest text-xs">Servicios</span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pl-4 border-l border-zinc-800">
-                <Link href="/desarrollo-web-nextjs-saas-custom" className="text-lg font-bold text-zinc-300 hover:text-violet-400">Next.js & SaaS</Link>
-                <Link href="/desarrollo-tiendas-shopify-chile" className="text-lg font-bold text-zinc-300 hover:text-violet-400">Tiendas Shopify</Link>
-                <Link href="/servicios-seo-posicionamiento-google" className="text-lg font-bold text-violet-500">SEO & Google</Link>
-                <Link href="/desarrollo-paginas-web-pymes-chile" className="text-lg font-bold text-zinc-300 hover:text-violet-400">Web Pymes</Link>
+              <div className="space-y-6 pt-2">
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">Servicios Digitales</span>
+                <div className="grid gap-4">
+                  {[
+                    { n: 'Next.js & SaaS', h: '/desarrollo-web-nextjs-saas-custom' },
+                    { n: 'Shopify Chile', h: '/desarrollo-tiendas-shopify-chile' },
+                    { n: 'SEO Avanzado', h: '/servicios-seo-posicionamiento-google' },
+                    { n: 'Sitios Pymes', h: '/desarrollo-paginas-web-pymes-chile' }
+                  ].map((item) => (
+                    <Link 
+                      key={item.h} 
+                      href={item.h} 
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="text-xl font-bold text-zinc-800 hover:text-violet-600 flex items-center gap-3 transition-colors"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-violet-600" />
+                      {item.n}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-            <Link href="/portafolio" className="text-4xl font-black text-white uppercase tracking-tighter hover:text-violet-500 transition-colors">Portafolio</Link>
-            <Link href="/blog" className="text-4xl font-black text-white uppercase tracking-tighter hover:text-violet-500 transition-colors">Blog</Link>
-            <Link href="/contacto" className="text-4xl font-black text-white uppercase tracking-tighter hover:text-violet-500 transition-colors">Contacto</Link>
-          </nav>
 
-          <div className="mt-auto pt-12 border-t border-zinc-900 space-y-4">
-            <button 
-              onClick={() => { openModal(); setIsMobileMenuOpen(false); }}
-              className="flex items-center justify-center gap-3 w-full py-6 bg-violet-600 text-white rounded-2xl font-black uppercase tracking-widest hover:bg-violet-500 transition-all shadow-lg shadow-violet-600/20"
-            >
-              Cotizar Proyecto Ahora
-            </button>
-            <a href="tel:+56984410379" className="flex items-center justify-center gap-3 w-full py-6 bg-zinc-900 text-white rounded-2xl font-black uppercase tracking-widest hover:bg-zinc-800 transition-all">
-               Hablar con Asesor
-            </a>
+              <Link href="/portafolio" onClick={() => setIsMobileMenuOpen(false)} className="group mt-2 border-t border-zinc-100 pt-6 pb-6 border-b">
+                <span className="text-sm font-bold text-violet-600 uppercase tracking-[0.2em] block mb-1 opacity-60">Resultados</span>
+                <span className="text-4xl font-black text-zinc-900 uppercase tracking-tighter group-hover:text-violet-600 transition-colors">Portafolio</span>
+              </Link>
+
+              <div className="flex flex-col gap-6 mt-2">
+                <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-zinc-500 hover:text-zinc-900 transition-colors uppercase tracking-widest flex justify-between items-center">
+                  Blog
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </Link>
+                <Link href="/contacto" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-zinc-500 hover:text-zinc-900 transition-colors uppercase tracking-widest flex justify-between items-center">
+                  Contacto
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </Link>
+              </div>
+            </nav>
+
+            <div className="mt-auto pt-10 grid gap-4">
+              <button 
+                onClick={() => { openModal(); setIsMobileMenuOpen(false); }}
+                className="w-full py-4 bg-violet-600 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-violet-700 transition-all shadow-xl shadow-violet-600/20 active:scale-95"
+              >
+                Cotizar Proyecto
+              </button>
+              <a href="tel:+56984410379" className="w-full py-4 bg-zinc-900 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-2">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                Asesor Directo
+              </a>
+            </div>
           </div>
         </div>
       </div>
