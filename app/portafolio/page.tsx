@@ -174,10 +174,11 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-white text-zinc-900 font-sans antialiased">
       <main className="pt-32 pb-20">
         <section className="relative px-6 py-20 lg:pt-32 lg:pb-48 overflow-hidden bg-zinc-950 text-white rounded-b-[4rem] lg:rounded-b-[6rem]">
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-emerald-500/10 blur-[150px] rounded-full -z-10" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-violet-600/10 blur-[150px] rounded-full -z-10 animate-pulse" />
+          <div className="absolute -bottom-48 -left-48 w-[600px] h-[600px] bg-emerald-500/5 blur-[120px] rounded-full -z-10" />
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
             <h1 className="text-4xl lg:text-[70px] font-black tracking-tighter leading-[0.9] mb-8 uppercase">
-              PORTAFOLIO <br/><span className="text-zinc-500 font-serif italic lowercase font-light">de Éxito</span>
+              PORTAFOLIO <br/><span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-emerald-400 font-serif italic lowercase font-light">de Éxito</span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
               Transformamos marcas a través de ingeniería web de élite. Explora cómo hemos impulsado a más de 50 empresas en Chile y el mundo.
@@ -191,7 +192,7 @@ export default function PortfolioPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${activeCategory === cat ? 'bg-zinc-900 text-white shadow-xl scale-105' : 'bg-zinc-50 text-zinc-500 hover:bg-zinc-100'}`}
+                className={`px-8 py-3 rounded-full text-sm font-bold transition-all ${activeCategory === cat ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/25 scale-105' : 'bg-zinc-50 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-800'}`}
               >
                 {cat}
               </button>
@@ -217,7 +218,7 @@ export default function PortfolioPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/20 to-transparent" />
                   <div className="absolute top-6 left-6 flex gap-2">
-                    <span className="px-4 py-1.5 bg-zinc-950/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest rounded-full border border-white/10">
+                    <span className="px-4 py-1.5 bg-violet-600/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest rounded-full border border-white/10">
                       {project.category}
                     </span>
                   </div>
@@ -227,7 +228,7 @@ export default function PortfolioPage() {
                   <div>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags?.map(tag => (
-                        <span key={tag} className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 border border-zinc-200 px-3 py-1 rounded-full">
+                        <span key={tag} className="text-[10px] font-bold uppercase tracking-wider text-violet-600 bg-violet-50 border border-violet-100 px-3 py-1 rounded-full">
                           {tag}
                         </span>
                       ))}
@@ -242,7 +243,7 @@ export default function PortfolioPage() {
 
                   <div className="flex items-center justify-between pt-8 border-t border-zinc-100">
                     <span className="text-sm font-bold text-zinc-400 group-hover:text-zinc-950 transition-colors uppercase tracking-widest">Explorar proyecto</span>
-                    <div className="w-12 h-12 rounded-full bg-zinc-50 flex items-center justify-center group-hover:bg-zinc-950 group-hover:text-white transition-all transform group-hover:translate-x-2">
+                    <div className="w-12 h-12 rounded-full bg-zinc-50 flex items-center justify-center group-hover:bg-violet-600 group-hover:text-white transition-all transform group-hover:translate-x-2 shadow-sm">
                       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
@@ -254,13 +255,18 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section className="mt-32 max-w-4xl mx-auto px-6 text-center">
-           <h2 className="text-4xl font-extrabold mb-8 tracking-tight">¿Listo para ser nuestro próximo <br/><span className="text-emerald-600">Caso de Éxito?</span></h2>
-           <p className="text-lg text-zinc-500 mb-12 max-w-xl mx-auto font-light leading-relaxed">
+        <section className="mt-32 max-w-4xl mx-auto px-6 text-center py-20 bg-zinc-50 rounded-[4rem] relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/5 blur-3xl rounded-full" />
+           <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/5 blur-3xl rounded-full" />
+           <h2 className="text-4xl lg:text-5xl font-black mb-8 tracking-tighter uppercase relative z-10">
+              ¿Listo para ser nuestro próximo <br/>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-emerald-600">Caso de Éxito?</span>
+           </h2>
+           <p className="text-lg text-zinc-500 mb-12 max-w-xl mx-auto font-light leading-relaxed relative z-10">
               No importa si eres una gran marca o una PYME con ambición. Tenemos la ingeniería necesaria para escalar tus resultados.
            </p>
            <LeadButton 
-            className="inline-block px-12 py-6 bg-zinc-950 text-white font-bold text-lg rounded-2xl hover:scale-105 transition-all shadow-xl"
+            className="inline-block px-12 py-6 bg-violet-600 text-white font-black text-lg rounded-2xl hover:scale-105 transition-all shadow-xl shadow-violet-500/20 uppercase tracking-tighter relative z-10"
            >
               Agendar mi Evaluación Gratuita
            </LeadButton>
