@@ -72,18 +72,14 @@ export default function ShopifyPage() {
             </div>
             <div className="relative group">
                <div className="absolute -inset-10 bg-[#95bf47]/5 rounded-full blur-[100px] -z-10" />
-               <div className="bg-zinc-50 border border-zinc-100 rounded-[3rem] p-10 shadow-2xl relative overflow-hidden">
-                  <div className="flex justify-between items-center mb-10">
-                    <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center">
-                       <span className="text-2xl">🛍️</span>
-                    </div>
-                    <div className="px-6 py-2 bg-green-50 text-green-700 rounded-full text-xs font-bold uppercase">Ready to scale</div>
-                  </div>
-                  <h3 className="text-3xl font-bold mb-6">Omnicanalidad nativa</h3>
-                  <p className="text-zinc-500 font-light leading-relaxed mb-8">Vende en tu web, redes sociales y puntos físicos de forma sincronizada con el mejor ecosistema e-commerce del mundo.</p>
-                  <div className="p-6 bg-white rounded-2xl border border-zinc-100 italic text-zinc-400 text-sm">
-                    \"La rapidez de carga con Shopify es impresionante...\"
-                  </div>
+               <div className="rounded-[3rem] overflow-hidden border border-zinc-100 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] bg-white p-4">
+                 <Image 
+                   src="/shopify_hero_card.png"
+                   alt="Shopify Expert Showcase"
+                   width={800}
+                   height={800}
+                   className="w-full h-auto rounded-[2rem] transform group-hover:scale-105 transition-transform duration-1000"
+                 />
                </div>
             </div>
           </div>
