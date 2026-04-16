@@ -3,7 +3,6 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import FloatingShapes from '@/components/ui/floating-shapes';
 import { ContactModalProvider } from '@/context/contact-modal-context';
 
 const inter = Inter({
@@ -45,7 +44,6 @@ export default function RootLayout({
     >
       <body className="font-sans min-h-full flex flex-col bg-white text-zinc-900 overflow-x-hidden">
         <ContactModalProvider>
-          <FloatingShapes />
           <Header />
           <div className="flex-grow">
             {children}

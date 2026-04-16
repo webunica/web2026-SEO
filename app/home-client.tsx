@@ -91,10 +91,9 @@ export default function HomeClient() {
     <main className="min-h-screen font-sans antialiased text-zinc-900 overflow-x-hidden">
       {/* Hero Section - Funnel Focus */}
       <section className="relative pt-36 pb-36 lg:pt-[210px] lg:pb-[210px] bg-white overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-600/5 blur-[120px] rounded-full -z-10 animate-pulse" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7" data-aos="fade-right">
+            <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100 mb-8">
                 <span className="w-2 h-2 rounded-full bg-violet-500 animate-pulse" />
                 <span className="text-xs font-bold uppercase tracking-widest text-violet-700 font-black">Performance Marketing Agency 2026</span>
@@ -120,7 +119,7 @@ export default function HomeClient() {
                 </Link>
               </div>
             </div>
-            <div className="lg:col-span-5 relative" data-aos="zoom-in">
+            <div className="lg:col-span-5 relative">
               <div className="bg-violet-50 rounded-[3rem] p-10 lg:p-14 relative group overflow-hidden border-2 border-violet-100 shadow-2xl shadow-violet-600/5 transition-all hover:scale-[1.02]">
                 <div className="flex justify-between items-center mb-10">
                   <div className="text-4xl text-violet-600">📈</div>
@@ -272,7 +271,6 @@ export default function HomeClient() {
       {/* Lead Magnet CTA */}
       <section className="py-32 px-6">
         <div className="max-w-5xl mx-auto bg-zinc-950 rounded-[5rem] p-12 lg:p-24 text-center text-white relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(124,58,237,0.1),transparent)] pointer-events-none" />
           <h2 className="text-4xl lg:text-7xl font-black mb-10 tracking-tighter uppercase leading-[0.9]">
             Tu embudo <br/><span className="text-violet-400 italic font-serif lowercase font-light">empieza</span> ahora
           </h2>

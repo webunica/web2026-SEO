@@ -34,7 +34,6 @@ export function ContactModalProvider({ children }: { children: React.ReactNode }
 
   return (
     <ContactModalContext.Provider value={{ openModal, closeModal, openWhatsApp, closeWhatsApp }}>
-      <WhatsAppFloating onClick={openWhatsApp} />
       {children}
       <ContactModal 
         isOpen={isOpen} 
@@ -45,6 +44,7 @@ export function ContactModalProvider({ children }: { children: React.ReactNode }
         isOpen={isWhatsAppOpen}
         onClose={closeWhatsApp}
       />
+      <WhatsAppFloating onClick={openWhatsApp} />
     </ContactModalContext.Provider>
   );
 }
