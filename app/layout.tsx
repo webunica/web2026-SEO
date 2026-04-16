@@ -17,12 +17,12 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Webunica | Agencia de Ingeniería Web y Expertos Shopify en Chile',
-  description: 'Agencia boutique de ingeniería web en Chile. Especialistas en desarrollo Next.js, plataformas SaaS escalables y optimización avanzada de tiendas Shopify para maximizar el ROI.',
-  keywords: 'agencia diseño web chile, desarrollo nextjs chile, expertos shopify chile, saas development, seo tecnico avanzado, webunica',
+  title: 'Webunica | Agencia de Embudos de Venta y Alta Ingeniería Web',
+  description: 'Expertos en embudos de venta de alto rendimiento, captación de leads y automatización comercial en Chile. Desarrollamos sistemas digitales que convierten para marcas escala global.',
+  keywords: 'embudos de venta chile, captacion de leads, agencia embudos de venta, desarrollo nextjs chile, expertos shopify chile, saas development, automatizacion comercial',
   openGraph: {
-    title: 'Webunica | Agencia de Ingeniería Web de Élite',
-    description: 'Expertos en desarrollo Next.js, SaaS y E-commerce Shopify de alto rendimiento en Chile.',
+    title: 'Webunica | Agencia de Embudos de Venta de Élite',
+    description: 'Convertimos tráfico en clientes. Embudos de venta, SaaS y E-commerce de alto rendimiento en Chile.',
     url: 'https://webunica.cl',
     siteName: 'Webunica',
     locale: 'es_CL',
