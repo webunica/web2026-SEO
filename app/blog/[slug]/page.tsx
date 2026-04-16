@@ -6,15 +6,16 @@ import { getPostBySlug, getPublishedPosts } from '@/lib/blog';
 import { Calendar, Clock, User, ArrowLeft, Globe, Share2, Link as LinkIcon } from 'lucide-react';
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+  const resolvedParams = await params;
+  const post = await getPostBySlug(resolvedParams.slug);
   if (!post) return { title: 'Post no encontrado' };
 
   return {
@@ -29,7 +30,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostBySlug(params.slug);
+  const resolvedParams = await params;
+  const post = await getPostBySlug(resolvedParams.slug);
   if (!post) notFound();
 
   const formattedDate = post.published_at 
