@@ -76,7 +76,7 @@ export default function Header() {
             
             {/* Logo Oficial Webunica */}
             <div className="flex-shrink-0 flex items-center relative z-20">
-              <Link href="/" prefetch={false} className="group block focus:outline-none relative z-20">
+              <Link href="/" className="group block focus:outline-none cursor-pointer">
                 <img 
                   src="https://webunica.cl/wp-content/uploads/2024/01/logo-webunica.png.webp" 
                   alt="Webunica Agencia" 
@@ -88,8 +88,8 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-10 ml-16">
-              <Link href="/" prefetch={false} className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest relative z-20`}>
+            <nav className="hidden lg:flex items-center gap-10 ml-16 relative z-30">
+              <Link href="/" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest cursor-pointer`}>
                 Inicio
               </Link>
               

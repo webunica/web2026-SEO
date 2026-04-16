@@ -76,8 +76,10 @@ export default function WooCommercePage() {
                 <Image 
                   src="/woocommerce_new_hero.png"
                   alt="WooCommerce Enterprise Store Showcase"
-                  width={800}
-                  height={800}
+                  width={1000}
+                  height={1000}
+                  priority
+                  quality={85}
                   className="w-full h-auto rounded-[2rem] transform group-hover:scale-105 transition-transform duration-1000"
                 />
               </div>

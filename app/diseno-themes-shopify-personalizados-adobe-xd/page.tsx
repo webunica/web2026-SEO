@@ -76,8 +76,10 @@ export default function ShopifyXDPage() {
                 <Image 
                    src="/adobe_xd_hero_new.png"
                   alt="Adobe XD to Shopify Workflow"
-                  width={800}
+                  width={1000}
                   height={1000}
+                  priority
+                  quality={85}
                   className="w-full h-auto transform group-hover:scale-105 transition-transform duration-1000"
                 />
               </div>

@@ -83,8 +83,10 @@ export default function RealEstatePage() {
                 <Image 
                   src="/real_estate_hero_new.png"
                   alt="Luxury Real Estate Web Design"
-                  width={800}
-                  height={800}
+                  width={1000}
+                  height={1000}
+                  priority
+                  quality={85}
                   className="w-full h-auto transform group-hover:scale-105 transition-transform duration-1000"
                 />
               </div>

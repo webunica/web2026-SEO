@@ -76,8 +76,10 @@ export default function SaaSPage() {
                  <Image 
                     src="/saas_hero_new.png"
                     alt="Next.js SaaS Dashboard Architecture"
-                    width={800}
-                    height={800}
+                    width={1000}
+                    height={1000}
+                    priority
+                    quality={85}
                     className="rounded-[2rem] transform group-hover:scale-105 transition-transform duration-1000 w-full h-auto"
                  />
               </div>
