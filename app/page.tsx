@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import FAQSection from '@/components/sections/faq-section';
 import FeaturedBlogSection from '@/components/sections/featured-blog';
-import ContactModal from '@/components/ui/contact-modal';
+
+import { useContactModal } from '@/context/contact-modal-context';
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useContactModal();
   const homeFaqs = [
     {
       question: "¿Por qué trabajar con Webunica en lugar de otras agencias?",
@@ -67,7 +67,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <button 
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => openModal()}
                   className="px-10 py-6 bg-violet-600 text-white rounded-[2rem] font-black uppercase tracking-[0.15em] text-[10px] flex items-center justify-center gap-3 hover:bg-violet-700 transition-all shadow-xl shadow-violet-600/25 active:scale-95 group/btn"
                 >
                   <svg className="w-5 h-5 transition-transform group-hover/btn:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -197,18 +197,13 @@ export default function Home() {
             Deja de perder tiempo con sitios que nadie ve. Construyamos tu activo digital hoy y domina tu industria.
           </p>
           <button 
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => openModal()}
             className="inline-block px-12 py-6 bg-violet-600 text-white font-bold text-lg rounded-2xl hover:bg-violet-700 transition-all shadow-xl shadow-violet-600/30"
           >
             Iniciar mi Transformación Digital
           </button>
         </div>
       </section>
-
-      <ContactModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
     </main>
   );
 }
