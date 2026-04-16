@@ -1,18 +1,32 @@
 import { Metadata } from 'next';
 import { getPublishedPosts, getCategories } from '@/lib/blog';
 import { BlogCard } from '@/components/blog/blog-card';
-import { Search, Filter } from 'lucide-react';
+import { Search } from 'lucide-react';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Blog - Webunica.cl | Diseño Web Shopify Chile',
   description: 'Explora guías, consejos y estrategias sobre Shopify, SEO y diseño web para potenciar tu tienda online en Chile.',
 };
 
-export default async function BlogPage() {
-  const [posts, categories] = await Promise.all([
+export const dynamic = 'force-dynamic';
+
+interface BlogPageProps {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const resolvedParams = await searchParams;
+  const currentCategory = (resolvedParams.category as string) || 'all';
+
+  const [allPosts, categories] = await Promise.all([
     getPublishedPosts(),
     getCategories()
   ]);
+
+  const posts = currentCategory === 'all' 
+    ? allPosts 
+    : allPosts.filter(post => post.category?.slug === currentCategory);
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -32,17 +46,32 @@ export default async function BlogPage() {
 
             {/* Filter Pills */}
             <div className="flex flex-wrap gap-2">
-              <button className="px-5 py-2 bg-brand-purple text-white font-bold rounded-full text-sm shadow-lg shadow-brand-purple/20">
+              <Link 
+                href="/blog"
+                className={`px-5 py-2 font-bold rounded-full text-sm transition-all shadow-sm ${
+                  currentCategory === 'all' 
+                    ? 'bg-brand-purple text-white shadow-brand-purple/20 shadow-lg' 
+                    : 'bg-white text-slate-600 hover:text-brand-purple hover:bg-brand-purple/5 border border-slate-200'
+                }`}
+              >
                 Todos
-              </button>
-              {categories.map((cat) => (
-                <button 
-                  key={cat.id}
-                  className="px-5 py-2 bg-white text-slate-600 hover:text-brand-purple hover:bg-brand-purple/5 border border-slate-200 font-bold rounded-full text-sm transition-all shadow-sm"
-                >
-                  {cat.name}
-                </button>
-              ))}
+              </Link>
+              {categories.map((cat) => {
+                const isActive = currentCategory === cat.slug;
+                return (
+                  <Link 
+                    key={cat.id}
+                    href={`/blog?category=${cat.slug}`}
+                    className={`px-5 py-2 font-bold rounded-full text-sm transition-all shadow-sm ${
+                      isActive
+                        ? 'bg-brand-purple text-white shadow-brand-purple/20 shadow-lg'
+                        : 'bg-white text-slate-600 hover:text-brand-purple hover:bg-brand-purple/5 border border-slate-200'
+                    }`}
+                  >
+                    {cat.name}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -62,8 +91,8 @@ export default async function BlogPage() {
               <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Search className="w-10 h-10 text-slate-300" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Aún no hay publicaciones</h3>
-              <p className="text-slate-500">Estamos preparando contenido increíble para ti. Vuelve pronto.</p>
+              <h3 className="text-2xl font-bold text-slate-900 mb-2">No hay publicaciones en esta categoría</h3>
+              <p className="text-slate-500">Intenta explorando otros temas, o vuelve a "Todos".</p>
             </div>
           )}
         </div>
