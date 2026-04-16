@@ -14,7 +14,7 @@ export default function ContactPage() {
       <section className="relative pt-40 pb-20 overflow-hidden bg-zinc-950 text-white rounded-b-[4rem]">
          <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-violet-600/20 blur-[120px] rounded-full -z-10" />
          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-500/10 blur-[100px] rounded-full -z-10" />
-         <div className="container mx-auto px-6 max-w-7xl relative z-10">
+         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
            <div className="max-w-3xl">
              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8">
                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -32,7 +32,7 @@ export default function ContactPage() {
 
       {/* Main Content */}
       <section className="py-24">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             
             {/* Left: Contact Info */}
@@ -147,7 +147,7 @@ export default function ContactPage() {
 
       {/* Trust Badges */}
       <section className="border-t border-slate-100 py-12 bg-slate-50 pb-32">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <p className="text-center text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-8">Empresas que confiaron en nuestra ingeniería</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
              {/* Replace with actual partner logos if available, using text fallbacks for now */}

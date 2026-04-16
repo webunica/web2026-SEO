@@ -174,7 +174,7 @@ export default function PortfolioPage() {
       <main className="pt-32 pb-20">
         <section className="relative px-6 py-20 lg:pt-32 lg:pb-48 overflow-hidden bg-zinc-950 text-white rounded-b-[4rem] lg:rounded-b-[6rem]">
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-emerald-500/10 blur-[150px] rounded-full -z-10" />
-          <div className="max-w-7xl mx-auto text-center relative z-10">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
             <h1 className="text-4xl lg:text-[70px] font-black tracking-tighter leading-[0.9] mb-8 uppercase">
               PORTAFOLIO <br/><span className="text-zinc-500 font-serif italic lowercase font-light">de Éxito</span>
             </h1>
@@ -193,7 +193,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-6 mt-20 mb-16">
+        <section className="max-w-7xl mx-auto px-6 lg:px-8 mt-20 mb-16">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((cat) => (
               <button
@@ -207,7 +207,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-6">
+        <section className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {filteredProjects.map((project, index) => (
               <a

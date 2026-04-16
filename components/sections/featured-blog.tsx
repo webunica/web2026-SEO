@@ -14,7 +14,7 @@ export default async function FeaturedBlogSection() {
 
   return (
     <section className="py-32 bg-slate-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-purple/10 border border-brand-purple/20 mb-6">
             <span className="w-2 h-2 rounded-full bg-brand-purple animate-pulse" />
@@ -36,7 +36,7 @@ export default async function FeaturedBlogSection() {
 
       {/* CSS Scroll Snap Carousel */}
       <div className="w-full relative">
-         <div className="flex overflow-x-auto gap-6 px-6 md:px-[calc((100vw-80rem)/2+1.5rem)] pb-12 snap-x snap-mandatory hide-scrollbars no-scrollbar">
+         <div className="flex overflow-x-auto gap-6 px-6 lg:px-[calc((100vw-80rem)/2+2rem)] pb-12 snap-x snap-mandatory hide-scrollbars no-scrollbar">
             {recentPosts.map((post) => (
               <div key={post.id} className="snap-center shrink-0 w-[85vw] md:w-[400px]">
                 <BlogCard post={post} />

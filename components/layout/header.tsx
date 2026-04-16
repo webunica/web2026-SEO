@@ -66,7 +66,7 @@ export default function Header() {
       `}</style>
       
       <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-zinc-200 shadow-sm h-[95px]' : 'bg-transparent h-[116px]'} flex items-center`}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="flex items-center justify-between h-full">
             
             {/* Logo Oficial Webunica */}

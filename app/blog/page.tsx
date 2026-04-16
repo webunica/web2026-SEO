@@ -35,7 +35,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         <div className="absolute inset-0 bg-brand-purple/5 pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl opacity-50" />
         
-        <div className="container mx-auto px-6 relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6 leading-none">
               Insights del <span className="text-brand-purple">Next Gen</span> Ecommerce
@@ -79,7 +79,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
       {/* Posts Grid */}
       <section className="pb-32">
-        <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {posts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {posts.map((post) => (

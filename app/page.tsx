@@ -46,8 +46,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Hero Section */}
-      <section className="relative px-6 pt-32 pb-20 lg:pt-48 lg:pb-32 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100 mb-8">
@@ -101,9 +101,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Grid with new structure and visual icons */}
       <section className="bg-zinc-50 py-32 border-y border-zinc-100">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-end mb-20">
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-zinc-950 uppercase leading-none">
               Ingeniería <br/>Estratégica <span className="text-zinc-400">Full-Stack</span>
@@ -131,9 +130,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* National Coverage Hub */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-zinc-950 uppercase mb-4">
               Presencia <span className="text-violet-600">Nacional</span>
