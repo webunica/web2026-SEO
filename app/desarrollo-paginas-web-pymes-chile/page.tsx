@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import FAQSection from '@/components/sections/faq-section';
+import LeadButton from '@/components/ui/lead-button';
 
 export const metadata = {
   title: 'Diseño de Páginas Web para PYMES en Chile | Webunica',
@@ -61,13 +61,11 @@ export default function PymesPage() {
               Llegó el momento de profesionalizar tu marca. Creamos sitios web que no solo se ven bien, sino que trabajan por ti las 24 horas captando nuevos clientes.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-               <a 
-                href="https://calendly.com/javiermillar/reunion-webunica" 
-                target="_blank"
+               <LeadButton 
                 className="px-12 py-5 bg-zinc-950 text-white font-bold rounded-2xl hover:bg-zinc-800 transition-all shadow-xl"
                >
                   Consultoría de Digitalización
-               </a>
+               </LeadButton>
             </div>
           </div>
         </section>
@@ -110,13 +108,11 @@ export default function PymesPage() {
            <div className="relative z-10 max-w-3xl mx-auto px-6">
               <h2 className="text-4xl lg:text-5xl font-extrabold mb-10 tracking-tight">Es hora de destacar en Google</h2>
               <p className="text-xl text-zinc-500 mb-12 italic font-serif">Tu negocio merece una presentación que cierre ventas automáticamente.</p>
-              <a 
-                href="https://calendly.com/javiermillar/reunion-webunica" 
-                target="_blank"
+              <LeadButton 
                 className="inline-block px-12 py-6 bg-white text-zinc-950 font-bold text-lg rounded-2xl hover:scale-105 transition-all shadow-2xl"
               >
                   Quiero mi Web Pyme
-              </a>
+              </LeadButton>
            </div>
         </section>
       </main>

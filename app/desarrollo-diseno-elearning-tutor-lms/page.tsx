@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import FAQSection from '@/components/sections/faq-section';
+import LeadButton from '@/components/ui/lead-button';
 
 export const metadata = {
   title: 'Diseño y Desarrollo de Plataformas E-learning con Tutor LMS | Webunica',
@@ -62,13 +62,11 @@ export default function ElearningPage() {
                 Diseñamos ecosistemas de aprendizaje de alta gama con **Tutor LMS**. Escala tu conocimiento y automatiza tus ingresos con una plataforma que ama a tus alumnos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                 <a 
-                  href="https://calendly.com/javiermillar/reunion-webunica" 
-                  target="_blank"
+                 <LeadButton 
                   className="px-10 py-5 bg-indigo-600 text-white rounded-2xl font-bold text-center hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200"
                  >
                     Consultoría de Lanzamiento
-                 </a>
+                 </LeadButton>
               </div>
             </div>
             <div className="relative group">
