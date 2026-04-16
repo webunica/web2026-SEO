@@ -78,7 +78,7 @@ export async function generateBlogPost(topic: string, keywords: string[]): Promi
       size: '1792x1024', // Landscape para imagen de portada de blog
       quality: 'standard',
     });
-    cover_image = imageResponse.data[0]?.url || '';
+    cover_image = imageResponse.data?.[0]?.url || '';
   } catch (imgError) {
     console.warn('[openai] DALL-E generation failed, using placeholder:', imgError);
     // Fallback: imagen genérica de Unsplash con query relevante
