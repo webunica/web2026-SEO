@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import FAQSection from '@/components/sections/faq-section';
+import LeadButton from '@/components/ui/lead-button';
 
 export const metadata = {
   title: 'Diseño Web para Funerarias y Obituarios Digitales | Webunica',
@@ -61,13 +62,11 @@ export default function FuneralPage() {
               Transformamos la presencia digital de las funerarias en refugios de memoria y consuelo, integrando tecnología de obituarios digitales de última generación.
             </p>
             <div className="mt-10">
-               <a 
-                href="https://calendly.com/javiermillar/reunion-webunica" 
-                target="_blank"
-                className="px-12 py-5 bg-zinc-900 text-white font-bold rounded-2xl hover:bg-zinc-800 transition-all shadow-xl"
+               <LeadButton 
+                className="px-12 py-5 bg-zinc-950 text-white font-bold rounded-2xl hover:bg-zinc-800 transition-all shadow-xl"
                >
                 Agendar Reunión de Asesoría
-               </a>
+               </LeadButton>
             </div>
           </div>
 
@@ -137,13 +136,11 @@ export default function FuneralPage() {
           <div className="max-w-3xl mx-auto text-center px-6">
             <h2 className="text-4xl font-bold text-zinc-900 mb-8">Modernice su funeraria con distinción</h2>
             <p className="text-xl text-zinc-600 mb-12 italic font-serif">Acompañamos su prestigio con la mejor tecnología de acompañamiento digital de Chile.</p>
-            <a 
-              href="https://calendly.com/javiermillar/reunion-webunica" 
-              target="_blank"
+            <LeadButton 
               className="inline-block px-12 py-6 bg-zinc-900 text-white font-bold text-lg rounded-2xl hover:bg-zinc-800 transition-all shadow-2xl"
             >
               Consultar Proyecto Funerario
-            </a>
+            </LeadButton>
           </div>
         </section>
       </main>
