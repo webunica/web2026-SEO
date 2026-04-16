@@ -67,7 +67,7 @@ export default function Header() {
         }
       `}</style>
       
-      <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-xl border-b border-zinc-200 shadow-sm h-[95px]' : 'bg-transparent h-[116px]'} flex items-center`}>
+      <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#f5f3ff]/70 backdrop-blur-md backdrop-saturate-150 border-b border-white/60 shadow-[0_8px_30px_rgba(139,92,246,0.08)] h-[95px]' : 'bg-transparent h-[116px]'} flex items-center`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="flex items-center justify-between h-full">
             
