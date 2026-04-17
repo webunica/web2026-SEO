@@ -78,7 +78,7 @@ export default function Footer() {
             100% { transform: translateX(-50%); }
           }
           .animate-marquee-horizontal {
-            animation: marquee-horizontal 20s linear infinite;
+            animation: marquee-horizontal 40s linear infinite;
           }
         `}</style>
       </div>
