@@ -6,8 +6,9 @@ import { supabase } from '@/lib/supabase/client';
 import ChecklistClient from '@/components/ui/checklist-client';
 import Link from 'next/link';
 import { Lock } from 'lucide-react';
+import { Suspense } from 'react';
 
-export default function ChecklistProPage() {
+function ChecklistProContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(true);
@@ -94,5 +95,13 @@ export default function ChecklistProPage() {
         storageKey="cro-pro-checklist"
       />
     </main>
+  );
+}
+
+export default function ChecklistProPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50"><div className="w-12 h-12 border-4 border-violet-600 border-t-transparent rounded-full animate-spin"></div></div>}>
+      <ChecklistProContent />
+    </Suspense>
   );
 }
