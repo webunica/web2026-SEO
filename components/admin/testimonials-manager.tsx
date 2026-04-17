@@ -17,7 +17,8 @@ import {
   CheckCircle2, 
   XCircle,
   Loader2,
-  RefreshCw
+  RefreshCw,
+  MessageSquare
 } from 'lucide-react';
 
 export default function TestimonialsManager() {
