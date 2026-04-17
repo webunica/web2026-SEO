@@ -33,16 +33,32 @@ export function LoginForm() {
     setLoading(true);
     setError(null);
     
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
+    try {
+      // Timeout guard de 10 segundos
+      const loginPromise = supabase.auth.signInWithPassword({
+        email,
+        password
+      });
 
-    if (error) {
-      setError(error.message);
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Tiempo de espera agotado. Por favor, reintenta.')), 10000)
+      );
+
+      const { error, data } = await Promise.race([loginPromise, timeoutPromise]) as any;
+
+      if (error) {
+        setError(error.message);
+        setLoading(false);
+      } else if (data?.user) {
+        // Redirección forzada para evitar que se quede pegado en el spinner
+        window.location.href = next;
+      } else {
+        // Por si acaso no hay error pero tampoco usuario (poco común en Supabase)
+        window.location.href = next;
+      }
+    } catch (err: any) {
+      setError(err.message || 'Error de conexión. Revisa tu internet.');
       setLoading(false);
-    } else {
-      router.push(next);
     }
   };
 
