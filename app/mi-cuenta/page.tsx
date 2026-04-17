@@ -12,7 +12,10 @@ import {
   Send, 
   Loader2, 
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Zap,
+  Lock,
+  ArrowRight
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
@@ -101,6 +104,50 @@ export default function UserAccountPage() {
             >
                 Cerrar Sesión
             </button>
+          </div>
+        </div>
+
+
+        {/* Mis Recursos: Checklists Section */}
+        <div className="mb-12">
+          <h2 className="text-xl font-black text-slate-900 mb-8 uppercase tracking-widest ml-6">Mis Recursos y Herramientas</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Basic Checklist Link */}
+            <div 
+              onClick={() => router.push('/listas-de-verificacion-shopify-cro-basica')}
+              className="bg-white border border-slate-200 rounded-[2.5rem] p-8 flex items-center justify-between hover:border-violet-300 hover:shadow-lg transition-all cursor-pointer group"
+            >
+              <div className="flex items-center gap-6">
+                <div className="w-14 h-14 bg-violet-100 text-violet-600 rounded-2xl flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-7 h-7" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-slate-900 leading-none mb-2">Checklist CRO Básica</h3>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Acceso Habilitado</span>
+                </div>
+              </div>
+              <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-violet-500 group-hover:translate-x-1 transition-all" />
+            </div>
+
+            {/* Pro Checklist Link */}
+            <div 
+              onClick={() => router.push('/listas-de-verificacion-shopify-cro-pro')}
+              className="bg-amber-50 border border-amber-100 rounded-[2.5rem] p-8 flex items-center justify-between hover:border-amber-300 hover:shadow-lg transition-all cursor-pointer group"
+            >
+              <div className="flex items-center gap-6">
+                <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center shrink-0">
+                  <Zap className="w-7 h-7" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-amber-900 leading-none mb-2">Auditoría CRO PRO</h3>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-amber-600">Requiere Desbloqueo</span>
+                    <Lock className="w-3 h-3 text-amber-600" />
+                  </div>
+                </div>
+              </div>
+              <ArrowRight className="w-5 h-5 text-amber-300 group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
+            </div>
           </div>
         </div>
 
