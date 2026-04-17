@@ -4,12 +4,30 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useContactModal } from '@/context/contact-modal-context';
+import { supabase } from '@/lib/supabase/client';
+import { User, LogIn } from 'lucide-react';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { openModal } = useContactModal();
   const pathname = usePathname();
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    async function getSession() {
+      if (!supabase) return;
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+    }
+    getSession();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -213,6 +231,17 @@ export default function Header() {
               <Link href="/contacto" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest`}>
                 Contacto
               </Link>
+              
+              <Link 
+                href="/mi-cuenta" 
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${scrolled ? 'bg-zinc-100 text-zinc-900 border border-zinc-200' : (isDarkHero ? 'bg-white/10 text-white border border-white/20' : 'bg-violet-50 text-violet-600 border border-violet-100')} hover:scale-105`}
+              >
+                {user ? (
+                  <><User className="w-3.5 h-3.5" /> Mi Cuenta</>
+                ) : (
+                  <><LogIn className="w-3.5 h-3.5" /> Acceso</>
+                )}
+              </Link>
             </nav>
 
             {/* CTA & Mobile Menu Toggle */}
@@ -310,6 +339,10 @@ export default function Header() {
                 <Link href="/contacto" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-zinc-500 hover:text-zinc-900 transition-colors uppercase tracking-widest flex justify-between items-center">
                   Contacto
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                </Link>
+                <Link href="/mi-cuenta" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 p-5 bg-violet-50 rounded-2xl text-violet-600 font-bold uppercase tracking-widest text-xs flex items-center justify-between">
+                  {user ? 'Mi Cuenta Personal' : 'Acceso Clientes'}
+                  <User className="w-4 h-4" />
                 </Link>
               </div>
             </nav>
