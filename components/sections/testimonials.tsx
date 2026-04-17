@@ -13,19 +13,22 @@ const MOCK_TESTIMONIALS = [
     quote: "Partnering with Webunica has dramatically increased our sales conversions. Their expert understanding of user paths and clear insight into our customers has completely transformed our online performance.",
     author: "SARAH - CEO FASHION BOUTIQUE",
     stars: 5,
-    active: true
+    active: true,
+    created_at: new Date().toISOString()
   },
   {
     quote: "La velocidad de carga de nuestro nuevo embudo es increíble. Pasamos de perder leads por lentitud a captar el triple de contactos en menos de un mes. Un cambio radical para nuestra agencia inmobiliaria.",
     author: "MARCOS - DIRECTOR INMOBILIARIA PREMIUM",
     stars: 5,
-    active: true
+    active: true,
+    created_at: new Date().toISOString()
   },
   {
     quote: "Diseño, velocidad y estrategia. Webunica entiende que una web no es para verse bonita, sino para vender. Nuestra plataforma SaaS ahora escala de forma predecible gracias a su arquitectura.",
     author: "JAVIER - CO-FOUNDER TECH STARTUP",
     stars: 5,
-    active: true
+    active: true,
+    created_at: new Date().toISOString()
   }
 ];
  
