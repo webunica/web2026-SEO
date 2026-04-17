@@ -18,6 +18,8 @@ export async function GET(request: Request) {
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`)
     }
+    // Si hay error al intercambiar el código, capturarlo
+    return NextResponse.redirect(`${origin}/login?error=${encodeURIComponent(error.message)}`)
   } else if (token_hash && type) {
     const { error } = await supabase.auth.verifyOtp({
       token_hash,
@@ -26,6 +28,7 @@ export async function GET(request: Request) {
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`)
     }
+    return NextResponse.redirect(`${origin}/login?error=${encodeURIComponent(error.message)}`)
   }
 
   // Fallback: If no code/token but we have an error in current URL, pass it along
