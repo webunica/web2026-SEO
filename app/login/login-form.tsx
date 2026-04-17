@@ -20,7 +20,7 @@ export function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
-  const next = searchParams.get('next') || '/admin';
+  const next = searchParams.get('next') || '/mi-cuenta';
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

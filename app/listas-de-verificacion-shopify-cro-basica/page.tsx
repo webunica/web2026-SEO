@@ -17,7 +17,7 @@ export default async function ChecklistBasicaPage() {
 
   // Protect route - requires login
   if (!user) {
-    redirect('/mi-cuenta');
+    redirect('/login?next=/listas-de-verificacion-shopify-cro-basica');
   }
 
   const filePath = path.join(process.cwd(), 'public', 'listas-de-verificacion-shopify-cro-basica.txt');
