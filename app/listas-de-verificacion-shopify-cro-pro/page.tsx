@@ -46,7 +46,7 @@ export default async function ChecklistProPage({
             <form action="/api/flow/checkout" method="POST">
               <button className="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-white font-bold text-lg px-8 py-4 rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-amber-500/20 inline-flex items-center justify-center gap-3">
                 <Zap className="w-5 h-5" />
-                Desbloquear por $29.990
+                Desbloquear por $10.000
               </button>
             </form>
             <p className="text-xs text-slate-400 mt-6 font-medium uppercase tracking-widest flex items-center justify-center gap-2">

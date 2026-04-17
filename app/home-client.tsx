@@ -243,6 +243,50 @@ export default function HomeClient({ posts }: { posts: BlogPost[] }) {
         </div>
       </section>
 
+      {/* Recurso: Listas de Verificación CRO */}
+      <section className="py-32 bg-white relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-2 rounded-full bg-amber-100 text-amber-700 font-bold text-xs uppercase tracking-widest mb-4">
+              Recursos de E-commerce
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-zinc-900 mb-6">
+              Auditorías CRO Listas para Usar
+            </h2>
+            <p className="text-lg text-zinc-500 max-w-2xl mx-auto font-medium">
+              Utiliza nuestras plantillas interactivas de evaluación para descubrir por qué tu tienda Shopify está perdiendo ventas y cómo solucionarlo rápidamente.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Básica */}
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-10 flex flex-col items-center text-center transition-all hover:shadow-lg">
+              <h3 className="text-2xl font-black text-slate-900 mb-2">Checklist CRO Básica</h3>
+              <p className="text-slate-500 mb-6 font-medium">Detecta errores comunes de usabilidad, confianza y experiencia de usuario.</p>
+              <div className="text-3xl font-black text-slate-900 mb-8">
+                Gratis <span className="text-[11px] text-slate-400 font-bold uppercase tracking-widest block mt-2">Requiere Registro Gratuito</span>
+              </div>
+              <Link href="/listas-de-verificacion-shopify-cro-basica" className="w-full py-4 rounded-xl font-bold text-white bg-slate-900 hover:bg-slate-800 transition-colors">
+                Descargar Lista Básica
+              </Link>
+            </div>
+
+            {/* Pro */}
+            <div className="bg-amber-50 border border-amber-200 rounded-3xl p-10 flex flex-col items-center text-center transition-all hover:shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-bl-xl">Pro Version</div>
+              <h3 className="text-2xl font-black text-amber-900 mb-2">Auditoría CRO PRO</h3>
+              <p className="text-amber-700/80 mb-6 font-medium">El marco avanzado completo de Webunica con más de 120 puntos de conversión.</p>
+              <div className="text-3xl font-black text-amber-900 mb-8">
+                $10.000 <span className="text-[11px] text-amber-900/60 font-bold uppercase tracking-widest block mt-2">CLP (Impuestos Incluidos)</span>
+              </div>
+              <Link href="/listas-de-verificacion-shopify-cro-pro" className="w-full py-4 rounded-xl font-bold text-white bg-amber-500 hover:bg-amber-600 transition-colors shadow-lg shadow-amber-500/25">
+                Desbloquear Acceso PRO
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Grid (Repositioned as Secondary) */}
       <section className="py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
