@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
   const displayList = testimonials.length > 0 ? testimonials : MOCK_TESTIMONIALS;
  
   return (
-    <section className="bg-zinc-950 py-32 md:py-48 overflow-hidden rounded-[4rem] mx-4 my-8">
+    <section className="bg-zinc-950 py-24 md:py-32 overflow-hidden rounded-[3rem] mx-4 my-4">
       <div className="max-w-7xl mx-auto px-6" ref={emblaRef}>
         <div className="flex">
           {displayList.map((testimonial, i) => (
@@ -56,25 +56,25 @@ export default function TestimonialsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="flex flex-col items-center text-center px-4"
+                className="flex flex-col items-center text-center px-4 md:px-20"
               >
-                {/* 5 Stars */}
-                <div className="flex gap-1 mb-10">
+                {/* Stars */}
+                <div className="flex gap-1 mb-6">
                   {[...Array(testimonial.stars)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-orange-300 text-orange-300" />
+                    <Star key={i} className="w-4 h-4 fill-orange-300 text-orange-300" />
                   ))}
                 </div>
  
                 {/* Quote */}
-                <blockquote className="max-w-4xl mx-auto mb-12">
-                  <p className="text-3xl md:text-5xl lg:text-7xl text-white font-serif italic leading-[1.1] tracking-tight">
+                <blockquote className="max-w-3xl mx-auto mb-8">
+                  <p className="text-2xl md:text-4xl lg:text-5xl text-white font-serif italic leading-[1.2] tracking-tight">
                     "{testimonial.quote}"
                   </p>
                 </blockquote>
  
                 {/* Author */}
                 <cite className="not-italic">
-                  <span className="text-zinc-500 text-[10px] md:text-xs font-black uppercase tracking-[0.4em]">
+                  <span className="text-zinc-500 text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em]">
                     ~ {testimonial.author} ~
                   </span>
                 </cite>
@@ -85,9 +85,9 @@ export default function TestimonialsSection() {
       </div>
  
       {/* Navigation Indicators (Dots) */}
-      <div className="flex justify-center gap-2 mt-16">
+      <div className="flex justify-center gap-2 mt-12">
         {displayList.map((_, i) => (
-          <div key={i} className="w-1.5 h-1.5 rounded-full bg-zinc-800" />
+          <div key={i} className="w-1 h-1 rounded-full bg-zinc-800" />
         ))}
       </div>
     </section>
