@@ -36,11 +36,13 @@ export default function LeadResourceModal({ isOpen, onClose, resourceName, resou
       }
 
       // 2. Iniciar registro/login vía Magic Link
-      // Esto validará el correo y permitirá al usuario entrar
+      // Usamos el callback para procesar el inicio de sesión y luego ir a setup-password
+      const redirectUrl = `${window.location.origin}/auth/callback?next=/login/setup-password?next=${resourceSlug}`;
+      
       const { error: authError } = await supabase!.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/login/setup-password?next=${resourceSlug}`,
+          emailRedirectTo: redirectUrl,
         },
       });
 
