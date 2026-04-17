@@ -77,12 +77,12 @@ function ChecklistProContent() {
             Esta lista avanzada contiene estrategias de conversión de alto nivel. Para acceder, es necesario realizar el pago único de $10.000 CLP.
           </p>
           <div className="space-y-4">
-            <Link 
+            <a 
               href="/api/flow/checkout" 
               className="block w-full py-4 bg-violet-600 hover:bg-violet-700 text-white font-bold rounded-2xl transition-all shadow-lg shadow-violet-200"
             >
               Desbloquear Lista PRO ($10.000)
-            </Link>
+            </a>
             <Link href="/mi-cuenta" className="block text-slate-400 font-bold text-sm hover:text-slate-600 transition-colors">
               Volver a mi cuenta
             </Link>
