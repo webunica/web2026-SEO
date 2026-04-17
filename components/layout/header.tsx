@@ -100,11 +100,8 @@ export default function Header() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
                 </button>
                 
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[1200px] bg-white border border-zinc-100 rounded-[3rem] shadow-[0_45px_100px_rgba(0,0,0,0.2)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2 relative z-[100]">
-                  {/* Background Image Overlay */}
-                  <div className="absolute inset-0 z-0 opacity-[0.07] bg-cover bg-center" style={{ backgroundImage: 'url(/bg-01.jpg)' }}></div>
-                  
-                  <div className="relative z-10 p-12 grid grid-cols-4 gap-10">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[1120px] bg-white/80 backdrop-blur-xl border border-white/40 rounded-[3rem] shadow-[0_45px_100px_rgba(0,0,0,0.15)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2 z-[100]">
+                  <div className="p-10 grid grid-cols-4 gap-8 relative z-10">
                     
                     {/* Col 1: E-commerce */}
                     <div>

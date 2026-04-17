@@ -93,7 +93,19 @@ export default function HomeClient({ posts }: { posts: BlogPost[] }) {
     <main className="min-h-screen font-sans antialiased text-zinc-900 overflow-x-hidden">
       {/* Hero Section - Funnel Focus */}
       <section className="relative pt-36 pb-36 lg:pt-[210px] lg:pb-[210px] bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Background Texture */}
+        <div className="absolute inset-0 z-0 opacity-30 pointer-events-none">
+          <Image 
+            src="/bg-01.jpg" 
+            alt="Background Texture" 
+            fill 
+            className="object-cover object-center" 
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 border border-violet-100 mb-8">
