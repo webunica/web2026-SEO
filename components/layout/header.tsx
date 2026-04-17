@@ -100,8 +100,8 @@ export default function Header() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
                 </button>
                 
-                <div className="absolute top-[85%] left-1/2 -translate-x-1/2 mt-2 w-[850px] bg-white border border-zinc-100 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.15)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2 p-8 lg:p-10">
-                  <div className="grid grid-cols-3 gap-10">
+                <div className="absolute top-[85%] left-1/2 -translate-x-1/2 mt-2 w-[1120px] bg-white border border-zinc-100 rounded-[3rem] shadow-[0_45px_100px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2 p-10">
+                  <div className="grid grid-cols-4 gap-8">
                     
                     {/* Col 1: E-commerce */}
                     <div>
@@ -110,12 +110,13 @@ export default function Header() {
                         E-commerce Profesional
                       </h4>
                       <div className="flex flex-col gap-1">
-                        <Link href="/desarrollo-tiendas-shopify-chile" className="group/item flex flex-col p-3 rounded-2xl hover:bg-violet-50 transition-colors">
-                          <span className="text-[15px] font-bold text-zinc-950 group-hover/item:text-violet-600 transition-colors">Tiendas Shopify</span>
-                          <span className="text-[11px] text-zinc-500 font-medium">Escala tu marca al mundo</span>
+                        <Link href="/desarrollo-tiendas-shopify-chile" className="group/item flex flex-col p-4 bg-zinc-50 rounded-[2.2rem] border-2 border-transparent hover:border-violet-500 hover:bg-violet-50 transition-all relative overflow-hidden mb-2">
+                          <div className="absolute top-0 right-0 px-3 py-1 bg-violet-600 text-[8px] font-black text-white uppercase rounded-bl-xl">Estrella</div>
+                          <span className="text-[15px] font-black text-zinc-950 group-hover/item:text-violet-600 transition-colors uppercase italic">Tiendas Shopify</span>
+                          <span className="text-[11px] text-zinc-500 font-medium leading-tight">Escala tu marca al mundo</span>
                         </Link>
                         <Link href="/desarrollo-tienda-en-linea-woocommerce" className="group/item flex flex-col p-3 rounded-2xl hover:bg-violet-50 transition-colors">
-                          <span className="text-[15px] font-bold text-zinc-950 group-hover/item:text-violet-600 transition-colors">WooCommerce Empresas</span>
+                          <span className="text-[15px] font-bold text-zinc-950 group-hover/item:text-violet-600 transition-colors">Tienda WooCommerce</span>
                           <span className="text-[11px] text-zinc-500 font-medium">B2B y Catálogos complejos</span>
                         </Link>
                         <Link href="/tienda-dropshipping-shopify-dropi" className="group/item flex flex-col p-3 rounded-2xl hover:bg-violet-50 transition-colors">
@@ -145,7 +146,7 @@ export default function Header() {
                             <span className="text-[15px] font-black text-white">SEO Avanzado</span>
                             <span className="text-[9px] bg-white/20 text-white px-2 py-0.5 rounded-full font-black">PRO</span>
                           </div>
-                          <span className="text-[11px] text-white/70 font-medium leading-tight">Auditoría y posicionamiento orgánico real</span>
+                          <span className="text-[11px] text-white/70 font-medium leading-tight">Auditoría y posicionamiento orgánico</span>
                         </Link>
                         <Link href="/desarrollo-paginas-web-pymes-chile" className="group/item flex flex-col p-3 rounded-2xl hover:bg-violet-50 transition-colors">
                           <span className="text-[15px] font-bold text-zinc-950 group-hover/item:text-violet-600 transition-colors">Sitios Web Pymes</span>
@@ -158,16 +159,16 @@ export default function Header() {
                     <div>
                       <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-6 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-sm bg-violet-600"></span>
-                        Soluciones Especializadas
+                        Especialidades
                       </h4>
                       <div className="flex flex-col gap-1">
                         <Link href="/desarrollo-diseno-elearning-tutor-lms" className="group/item flex flex-col p-3 rounded-2xl hover:bg-violet-50 transition-colors">
                           <span className="text-[15px] font-bold text-zinc-950 group-hover/item:text-violet-600 transition-colors">Academias Tutor LMS</span>
-                          <span className="text-[11px] text-zinc-500 font-medium">Educación Online y Venta de Cursos</span>
+                          <span className="text-[11px] text-zinc-500 font-medium">E-learning y Venta de Cursos</span>
                         </Link>
                         <Link href="/diseno-paginas-web-inmobiliaria" className="group/item flex flex-col p-3 rounded-2xl hover:bg-violet-50 transition-colors">
                           <span className="text-[15px] font-bold text-zinc-950 group-hover/item:text-violet-600 transition-colors">Inmobiliarias Premium</span>
-                          <span className="text-[11px] text-zinc-500 font-medium">Catálogo dinámico de propiedades</span>
+                          <span className="text-[11px] text-zinc-500 font-medium">Catálogo de propiedades</span>
                         </Link>
                         <Link href="/desarrollo-pagina-web-funeraria" className="group/item flex flex-col p-3 rounded-2xl hover:bg-violet-50 transition-colors">
                           <span className="text-[15px] font-bold text-zinc-950 group-hover/item:text-violet-600 transition-colors">Funerarias & Obituarios</span>
@@ -176,28 +177,31 @@ export default function Header() {
                       </div>
                     </div>
 
+                    {/* Col 4: Herramientas */}
+                    <div className="bg-zinc-50 -m-10 p-10 border-l border-zinc-100 flex flex-col">
+                      <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-6 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-sm bg-blue-600"></span>
+                        Herramientas
+                      </h4>
+                      <div className="flex flex-col gap-3">
+                        <Link href="/calculadora-de-campana-meta-ads-facebook" className="group/tool block p-4 bg-white border border-zinc-100 rounded-2xl hover:border-violet-500 hover:shadow-xl transition-all">
+                          <span className="block text-[13px] font-bold text-zinc-950 mb-1 group-hover/tool:text-violet-600">Calculadora Meta Ads</span>
+                          <span className="block text-[10px] text-zinc-500 leading-tight">Retorno de inversión publicitaria</span>
+                        </Link>
+                        <Link href="/cotizador-en-linea-desarrollo-web" className="group/tool block p-4 bg-white border border-zinc-100 rounded-2xl hover:border-violet-500 hover:shadow-xl transition-all">
+                          <span className="block text-[13px] font-bold text-zinc-950 mb-1 group-hover/tool:text-violet-600">Cotizador Web Pro</span>
+                          <span className="block text-[10px] text-zinc-500 leading-tight">Presupuesto estimado al instante</span>
+                        </Link>
+                        <div className="mt-4 p-4 bg-violet-600/5 rounded-2xl border border-violet-600/10">
+                          <p className="text-[11px] text-violet-600 leading-relaxed font-bold">Insights técnicos en nuestro blog.</p>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
 
-              {/* Herramientas Dropdown */}
-              <div className="relative group">
-                <button className={`${textColor} ${hoverColor} font-bold transition-all flex items-center gap-1 text-[12px] uppercase tracking-widest py-4`}>
-                  Herramientas
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
-                </button>
-                <div className="absolute top-[80%] left-1/2 -translate-x-1/2 mt-2 w-72 bg-white border border-zinc-100 rounded-3xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden transform group-hover:translate-y-2">
-                  <div className="flex flex-col py-3">
-                    <Link href="/cotizador-en-linea-desarrollo-web" className="px-6 py-4 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors">
-                      Calculadora Presupuesto Web
-                    </Link>
-                    <Link href="/calculadora-de-campana-meta-ads-facebook" className="px-6 py-4 text-[15px] font-bold text-zinc-700 hover:bg-violet-50 hover:text-violet-600 transition-colors">
-                      Calculadora Meta Ads ROI
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              
               <Link href="/portafolio" className={`${textColor} ${hoverColor} font-bold transition-all text-[12px] uppercase tracking-widest`}>
                 Portafolio
               </Link>
