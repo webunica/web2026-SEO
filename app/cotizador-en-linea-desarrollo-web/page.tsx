@@ -369,7 +369,8 @@ export default function CotizadorPage() {
           )}
 
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
   );
 }
