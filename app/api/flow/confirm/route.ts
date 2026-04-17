@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabaseAdmin } from '@/lib/supabase/admin';
+import { getSupabaseAdmin } from '@/lib/supabase/admin';
 import { callFlowAPI } from '@/lib/flow';
 
 export async function POST(request: Request) {
@@ -28,7 +28,8 @@ export async function POST(request: Request) {
 
       if (userId && resourceId) {
         // 3. Otorgar el permiso permanente en la Base de Datos
-        const { error } = await supabaseAdmin
+        const supabase = getSupabaseAdmin();
+        const { error } = await supabase
           .from('user_access')
           .insert({
             user_id: userId,
