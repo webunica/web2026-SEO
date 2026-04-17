@@ -12,9 +12,11 @@ import {
 } from 'lucide-react';
 
 export function LoginForm() {
+  const [mode, setMode] = useState<'login' | 'signup' | 'reset'>('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -40,12 +42,30 @@ export function LoginForm() {
     }
   };
 
+  const handleResetPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!supabase) return;
+    setLoading(true); setError(null); setMessage(null);
+    
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/auth/callback?next=/login/update-password`,
+    });
+
+    if (error) {
+      setError(error.message);
+    } else {
+      setMessage('¡Enlace de recuperación enviado! Revisa tu correo.');
+    }
+    setLoading(false);
+  };
+
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!supabase) return;
     
     setLoading(true);
     setError(null);
+    setMessage(null);
     
     const { error, data } = await supabase.auth.signUp({
       email,
@@ -59,33 +79,34 @@ export function LoginForm() {
       setError(error.message);
       setLoading(false);
     } else if (data.session) {
-        router.push('/admin');
+        router.push(next);
     } else {
-      alert('¡Revisa tu correo para confirmar tu cuenta!');
+      setMessage('¡Cuenta creada! Revisa tu correo para confirmar activarla.');
       setLoading(false);
     }
   };
 
+
+  const handleAction = (e: React.FormEvent) => {
+    if (mode === 'login') handleLogin(e);
+    else if (mode === 'signup') handleSignUp(e);
+    else handleResetPassword(e);
+  };
+
   return (
     <div className="w-full max-w-md relative z-10">
-      <div className="text-center mb-12">
-        <div className="w-16 h-16 bg-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-violet-600/20">
-          <ShieldCheck className="w-8 h-8 text-white" />
-        </div>
-        <h1 className="text-4xl font-black text-slate-900 tracking-tighter uppercase mb-4 italic font-serif lowercase font-light">
-           Webunica <span className="text-violet-600 not-italic uppercase font-black">Gate</span>
-        </h1>
-        <p className="text-slate-400 font-medium">Accede al panel de control o gestiona tus testimonios.</p>
-      </div>
+      {/* Header removed as requested */}
+
 
       <div className="bg-white border-2 border-slate-100 rounded-[3rem] p-10 shadow-[0_30px_100px_rgba(0,0,0,0.05)]">
-        <form className="space-y-6">
+        <form onSubmit={handleAction} className="space-y-6">
           <div>
             <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-4">Email Corporativo / Cliente</label>
             <div className="relative">
               <Mail className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
               <input 
                 type="email" 
+                required
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:border-violet-500 transition-all text-slate-700 font-medium"
@@ -94,19 +115,33 @@ export function LoginForm() {
             </div>
           </div>
 
-          <div>
-            <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-4">Contraseña</label>
-            <div className="relative">
-              <Lock className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
-              <input 
-                type="password" 
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:border-violet-500 transition-all text-slate-700 font-medium"
-                placeholder="••••••••"
-              />
+          {mode !== 'reset' && (
+            <div>
+              <div className="flex justify-between items-center mb-2 ml-4">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400">Contraseña</label>
+                {mode === 'login' && (
+                  <button 
+                    type="button"
+                    onClick={() => setMode('reset')}
+                    className="text-[10px] text-violet-600 font-bold hover:underline"
+                  >
+                    ¿Olvidaste tu clave?
+                  </button>
+                )}
+              </div>
+              <div className="relative">
+                <Lock className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
+                <input 
+                  type="password" 
+                  required={mode !== 'reset'}
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:border-violet-500 transition-all text-slate-700 font-medium"
+                  placeholder="••••••••"
+                />
+              </div>
             </div>
-          </div>
+          )}
 
           {error && (
             <div className="p-4 bg-rose-50 border border-rose-100 rounded-2xl text-rose-600 text-xs font-bold text-center">
@@ -114,21 +149,43 @@ export function LoginForm() {
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-4 pt-4">
+          {message && (
+            <div className="p-4 bg-emerald-50 border border-emerald-100 rounded-2xl text-emerald-600 text-xs font-bold text-center">
+              {message}
+            </div>
+          )}
+
+          <div className="space-y-4 pt-4">
             <button 
-              onClick={handleLogin}
+              type="submit"
               disabled={loading}
-              className="py-5 bg-zinc-950 text-white rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 hover:bg-zinc-800 transition-all"
+              className="w-full py-5 bg-zinc-950 text-white rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 hover:bg-zinc-800 transition-all"
             >
-              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Lock className="w-3.5 h-3.5" /> Acceder</>}
+              {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : (
+                mode === 'login' ? <><Lock className="w-3.5 h-3.5" /> Acceder</> : 
+                mode === 'signup' ? 'Crear Cuenta' : 'Enviar Enlace'
+              )}
             </button>
-            <button 
-              onClick={handleSignUp}
-              disabled={loading}
-              className="py-5 bg-violet-600 text-white rounded-2xl font-black uppercase tracking-widest text-[10px] flex items-center justify-center gap-2 hover:bg-violet-700 transition-all"
-            >
-              Registrarme
-            </button>
+            
+            <div className="text-center">
+              {mode === 'login' ? (
+                <button 
+                  type="button"
+                  onClick={() => setMode('signup')}
+                  className="text-[10px] text-slate-400 font-bold uppercase tracking-widest hover:text-violet-600 transition-colors"
+                >
+                  ¿No tienes cuenta? <span className="text-violet-600">Regístrate</span>
+                </button>
+              ) : (
+                <button 
+                  type="button"
+                  onClick={() => { setMode('login'); setError(null); setMessage(null); }}
+                  className="text-[10px] text-slate-400 font-bold uppercase tracking-widest hover:text-violet-600 transition-colors"
+                >
+                  Volver al <span className="text-violet-600">Acceso</span>
+                </button>
+              )}
+            </div>
           </div>
         </form>
 
