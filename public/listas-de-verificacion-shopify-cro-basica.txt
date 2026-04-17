@@ -1,0 +1,152 @@
+LISTA DE VERIFICACIÓN SHOPIFY CRO BÁSICA
+
+Objetivo:
+Esta lista permite detectar de forma rápida si una tienda Shopify está perdiendo conversiones por problemas de claridad, confianza, estructura, experiencia móvil o fricción en la compra.
+
+Instrucciones:
+Marca cada punto como:
+[ ] Sí
+[ ] No
+[ ] Parcial
+
+==================================================
+1. PROPUESTA DE VALOR Y PRIMERA IMPRESIÓN
+==================================================
+
+[ ] La tienda comunica claramente qué vende en los primeros 5 segundos.
+[ ] El titular principal explica el beneficio o propuesta de valor.
+[ ] La portada evita mensajes genéricos y muestra una oferta clara.
+[ ] Existe coherencia entre marca, diseño y tipo de producto.
+[ ] La página transmite profesionalismo y confianza desde el inicio.
+
+==================================================
+2. HOME
+==================================================
+
+[ ] El home muestra productos o categorías relevantes rápidamente.
+[ ] Hay un llamado a la acción principal visible.
+[ ] El banner principal no distrae ni oculta la oferta.
+[ ] Se destacan beneficios importantes como despacho, cambios o garantía.
+[ ] El home ayuda a avanzar hacia compra y no solo a “verse bonito”.
+
+==================================================
+3. NAVEGACIÓN Y ESTRUCTURA
+==================================================
+
+[ ] El menú principal es claro y fácil de entender.
+[ ] Las categorías tienen nombres simples y orientados al usuario.
+[ ] El buscador está visible si la tienda tiene varios productos.
+[ ] El usuario puede encontrar productos sin perderse.
+[ ] La navegación funciona correctamente tanto en desktop como en móvil.
+
+==================================================
+4. COLECCIONES Y CATEGORÍAS
+==================================================
+
+[ ] Las colecciones tienen títulos claros y útiles.
+[ ] Los productos se muestran con imágenes de buena calidad.
+[ ] El usuario puede comparar productos fácilmente.
+[ ] Hay filtros o una organización útil cuando el catálogo lo requiere.
+[ ] Las colecciones no se sienten vacías ni desordenadas.
+
+==================================================
+5. FICHA DE PRODUCTO
+==================================================
+
+[ ] La ficha de producto muestra un nombre claro y entendible.
+[ ] El precio está visible sin esfuerzo.
+[ ] El botón de compra destaca visualmente.
+[ ] La descripción explica beneficios y no solo características técnicas.
+[ ] Las fotos ayudan realmente a entender el producto.
+[ ] El producto muestra variantes de forma clara si las tiene.
+[ ] La ficha resuelve dudas frecuentes antes de comprar.
+[ ] Se informa disponibilidad, stock o tiempos de entrega cuando aplica.
+
+==================================================
+6. CONFIANZA Y PRUEBA SOCIAL
+==================================================
+
+[ ] La tienda muestra información de contacto visible.
+[ ] Existen señales de confianza como reseñas, testimonios o valoraciones.
+[ ] Se explican políticas de cambios, despacho o devoluciones.
+[ ] La marca muestra presencia real y no parece improvisada.
+[ ] Hay elementos que reducen la sensación de riesgo en la compra.
+
+==================================================
+7. CARRITO
+==================================================
+
+[ ] El carrito muestra claramente los productos agregados.
+[ ] Es fácil modificar cantidades o eliminar productos.
+[ ] No aparecen costos sorpresa demasiado tarde.
+[ ] El carrito mantiene claridad sobre subtotal y siguiente paso.
+[ ] El usuario entiende fácilmente cómo continuar al checkout.
+
+==================================================
+8. CHECKOUT
+==================================================
+
+[ ] El proceso de compra se siente simple y ordenado.
+[ ] No se piden datos innecesarios.
+[ ] Los métodos de pago generan confianza.
+[ ] Los costos de envío o condiciones aparecen con suficiente claridad.
+[ ] El checkout funciona correctamente en móvil.
+
+==================================================
+9. EXPERIENCIA MÓVIL
+==================================================
+
+[ ] La tienda se ve bien en smartphone.
+[ ] Los botones son fáciles de tocar.
+[ ] El texto tiene buen tamaño y legibilidad.
+[ ] Las imágenes no rompen el diseño.
+[ ] Comprar desde móvil se siente cómodo y rápido.
+
+==================================================
+10. VELOCIDAD Y FRICCIÓN GENERAL
+==================================================
+
+[ ] La tienda carga rápido en páginas principales.
+[ ] No hay popups invasivos apenas entra el usuario.
+[ ] No existen errores visibles o elementos rotos.
+[ ] La experiencia general se siente fluida.
+[ ] La tienda facilita la compra y no la complica.
+
+==================================================
+11. MEDICIÓN BÁSICA
+==================================================
+
+[ ] La tienda tiene instalado al menos un sistema de analítica.
+[ ] Se pueden identificar productos o páginas importantes.
+[ ] Existe una forma básica de medir ventas o comportamiento.
+[ ] El negocio revisa datos y no toma decisiones solo por intuición.
+
+==================================================
+RESULTADO RÁPIDO
+==================================================
+
+Cuenta cuántos “Sí” marcaste:
+
+0 a 15 Sí
+Tu tienda probablemente tiene una base débil de conversión y requiere mejoras prioritarias.
+
+16 a 30 Sí
+Tu tienda tiene avances, pero aún presenta varias fugas de conversión.
+
+31 a 45 Sí
+La base es aceptable, aunque todavía hay oportunidades claras de mejora.
+
+46 a 59 Sí
+Tu tienda tiene una estructura sólida, pero puede seguir optimizándose.
+
+==================================================
+CIERRE COMERCIAL SUGERIDO
+==================================================
+
+Si detectaste varios “No” o “Parcial”, la siguiente etapa recomendable es revisar una versión más profunda con prioridades, impacto estimado y plan de acción.
+
+Versión recomendada:
+Shopify CRO Pro
+
+Servicio recomendado:
+Auditoría Shopify CRO Webunica

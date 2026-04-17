@@ -1,0 +1,340 @@
+LISTA DE VERIFICACIÓN SHOPIFY CRO PRO
+
+Objetivo:
+Esta lista está diseñada para auditorías más completas de conversión en Shopify. Permite revisar claridad comercial, arquitectura, producto, percepción de valor, confianza, carrito, checkout, experiencia móvil, rendimiento y medición.
+
+Modo de uso sugerido:
+Para cada punto marca:
+[ ] Sí
+[ ] No
+[ ] Parcial
+
+Campos recomendados para uso interno:
+Impacto: Alto / Medio / Bajo
+Prioridad: Alta / Media / Baja
+Observación:
+Acción sugerida:
+
+==================================================
+1. ESTRATEGIA, PROPUESTA DE VALOR Y MENSAJE
+==================================================
+
+[ ] La tienda deja claro qué vende sin necesidad de explorar demasiado.
+[ ] La propuesta de valor principal se entiende en menos de 5 segundos.
+[ ] El mensaje principal está orientado al beneficio y no solo al producto.
+[ ] El home evita titulares vagos como “bienvenido” o “descubre más”.
+[ ] La marca comunica para quién es el producto.
+[ ] La marca deja claro por qué elegirla frente a otras opciones.
+[ ] Existe coherencia entre branding, tono y público objetivo.
+[ ] La comunicación cambia según campañas, temporadas o colecciones prioritarias.
+[ ] La tienda explica diferenciales reales y no solo frases aspiracionales.
+[ ] El mensaje principal está alineado con anuncios, redes o tráfico de entrada.
+
+==================================================
+2. HOME Y PRIMERA IMPRESIÓN
+==================================================
+
+[ ] El hero principal tiene un objetivo comercial claro.
+[ ] El banner principal no empuja demasiados mensajes al mismo tiempo.
+[ ] Existe un CTA principal visible sobre el pliegue inicial.
+[ ] El home dirige rápidamente a categorías, productos o compra.
+[ ] La portada destaca beneficios competitivos visibles.
+[ ] El home incluye prueba social o señales de confianza.
+[ ] El orden visual del home favorece la exploración natural.
+[ ] El home no depende solo de sliders para comunicar.
+[ ] Las promociones importantes están visibles sin saturar la experiencia.
+[ ] El contenido del home responde dudas frecuentes del comprador.
+[ ] El home tiene bloques pensados para conversión y no solo para diseño.
+[ ] El home contiene secciones útiles según el negocio: best sellers, novedades, bundles, reseñas o garantías.
+
+==================================================
+3. NAVEGACIÓN, MENÚ Y ARQUITECTURA
+==================================================
+
+[ ] El menú principal presenta una jerarquía fácil de entender.
+[ ] Las categorías usan nombres comprensibles para clientes reales.
+[ ] El usuario puede llegar a una categoría clave en pocos clics.
+[ ] El mega menú, si existe, mejora la experiencia y no la complica.
+[ ] El buscador es visible y fácil de usar.
+[ ] La navegación ayuda tanto a usuarios nuevos como recurrentes.
+[ ] Los enlaces del header y footer tienen lógica comercial.
+[ ] No hay duplicidad innecesaria de categorías.
+[ ] El breadcrumb, si aplica, ayuda a ubicarse dentro del catálogo.
+[ ] Las páginas importantes no quedan escondidas.
+[ ] El menú móvil es claro y cómodo.
+[ ] La arquitectura de contenidos favorece el descubrimiento de productos.
+
+==================================================
+4. BÚSQUEDA INTERNA Y DESCUBRIMIENTO
+==================================================
+
+[ ] La búsqueda arroja resultados relevantes.
+[ ] La búsqueda tolera errores comunes de escritura.
+[ ] Existen sugerencias automáticas útiles si el catálogo es amplio.
+[ ] El estado vacío de búsqueda orienta al usuario.
+[ ] Los resultados de búsqueda muestran información suficiente para decidir.
+[ ] La búsqueda prioriza productos relevantes o disponibles.
+[ ] El buscador es útil desde móvil.
+[ ] El usuario no necesita probar muchos términos para encontrar lo que busca.
+
+==================================================
+5. COLECCIONES, CATEGORÍAS Y LISTADOS
+==================================================
+
+[ ] Las colecciones tienen títulos claros y comerciales.
+[ ] Existe una lógica coherente para ordenar productos.
+[ ] El orden por defecto favorece venta o relevancia.
+[ ] Los filtros disponibles realmente ayudan a decidir.
+[ ] La cantidad de filtros no abruma.
+[ ] Los productos se muestran con imágenes consistentes.
+[ ] El precio es visible en la grilla.
+[ ] Las etiquetas o badges ayudan a detectar promociones o novedades.
+[ ] Se destacan productos populares o recomendados cuando corresponde.
+[ ] La paginación o carga de productos es clara y usable.
+[ ] El usuario puede comparar opciones de manera rápida.
+[ ] Las colecciones no mezclan productos de forma confusa.
+
+==================================================
+6. FICHA DE PRODUCTO: CLARIDAD Y PERSUASIÓN
+==================================================
+
+[ ] El nombre del producto es claro y específico.
+[ ] El precio principal se identifica sin esfuerzo.
+[ ] Si hay descuento, el ahorro se percibe con claridad.
+[ ] El botón de compra destaca visualmente.
+[ ] El CTA principal aparece sin depender del scroll excesivo.
+[ ] La propuesta de valor del producto está clara arriba del pliegue.
+[ ] La descripción prioriza beneficios antes que detalles secundarios.
+[ ] El contenido responde por qué este producto vale la pena.
+[ ] El producto muestra usos, resultados o contexto real.
+[ ] La ficha evita bloques extensos de texto difíciles de leer.
+[ ] El usuario entiende rápido qué incluye la compra.
+[ ] El usuario entiende rápido qué no incluye la compra.
+[ ] Las variantes se presentan de forma clara.
+[ ] La selección de variantes no genera errores confusos.
+[ ] Existe una visualización clara de stock o disponibilidad.
+[ ] Se informa plazo de despacho o entrega cuando aplica.
+[ ] Se muestran métodos de pago o cuotas si eso impacta decisión.
+[ ] Se explican devoluciones, cambios o garantías cerca del CTA.
+[ ] La ficha incluye FAQ o dudas frecuentes cuando corresponde.
+[ ] Existen recomendaciones de productos complementarios si tienen sentido.
+
+==================================================
+7. FICHA DE PRODUCTO: IMÁGENES Y CONTENIDO VISUAL
+==================================================
+
+[ ] La foto principal tiene calidad suficiente.
+[ ] Las imágenes mantienen coherencia visual.
+[ ] El producto se ve desde varios ángulos.
+[ ] Las imágenes permiten entender tamaño, textura o uso.
+[ ] Existen fotos contextuales o lifestyle si son relevantes.
+[ ] El zoom, galería o visor ayudan a evaluar el producto.
+[ ] La galería funciona bien en móvil.
+[ ] Los videos, si existen, aportan claridad real.
+[ ] Las imágenes no ralentizan en exceso la página.
+[ ] La galería no genera fricción o confusión con variantes.
+
+==================================================
+8. PRECIO, OFERTA Y PERCEPCIÓN DE VALOR
+==================================================
+
+[ ] El valor del producto está contextualizado correctamente.
+[ ] El usuario entiende si hay promoción real o solo descuento visual.
+[ ] La oferta comunica ahorro, urgencia o beneficio con honestidad.
+[ ] Los packs o bundles tienen sentido comercial.
+[ ] Existen incentivos para subir ticket promedio.
+[ ] El costo de envío no destruye la percepción de valor.
+[ ] La tienda comunica mínimo de compra o beneficios por monto.
+[ ] El valor del producto está alineado con la presentación visual.
+[ ] La tienda no genera sensación de precio inflado o confuso.
+[ ] Las promociones tienen jerarquía clara y no compiten entre sí.
+
+==================================================
+9. CONFIANZA, PRUEBA SOCIAL Y REDUCCIÓN DE RIESGO
+==================================================
+
+[ ] La tienda muestra identidad de marca real.
+[ ] Existe página de contacto o información empresarial visible.
+[ ] Los datos de contacto son fáciles de encontrar.
+[ ] Existen políticas claras de cambios y devoluciones.
+[ ] La política de despacho está explicada.
+[ ] La política de privacidad y términos están disponibles.
+[ ] Hay reseñas o valoraciones visibles.
+[ ] Las reseñas parecen creíbles y útiles.
+[ ] Se muestran testimonios si el modelo de negocio lo justifica.
+[ ] La tienda comunica seguridad en pago.
+[ ] Hay sellos o elementos de confianza cuando aportan valor.
+[ ] El usuario no siente que está comprando en una tienda improvisada.
+
+==================================================
+10. CARRITO Y MINI CART
+==================================================
+
+[ ] Agregar al carrito funciona sin errores.
+[ ] El mini cart confirma correctamente la acción.
+[ ] El carrito muestra nombre, imagen y variante del producto.
+[ ] El usuario puede editar cantidades fácilmente.
+[ ] El usuario puede eliminar productos fácilmente.
+[ ] Se muestran subtotales claros.
+[ ] Se muestran costos esperables antes de avanzar.
+[ ] Existen recomendaciones en carrito si agregan valor.
+[ ] El carrito no distrae con demasiados elementos secundarios.
+[ ] El CTA para ir al checkout es visible y claro.
+[ ] El carrito funciona bien en móvil.
+[ ] No aparecen errores inesperados al actualizar el carrito.
+
+==================================================
+11. CHECKOUT Y FRICCIÓN DE COMPRA
+==================================================
+
+[ ] El checkout transmite seguridad.
+[ ] El usuario entiende cuántos pasos faltan.
+[ ] No se piden datos innecesarios.
+[ ] El formulario es claro y ordenado.
+[ ] Los errores del formulario son entendibles.
+[ ] El usuario puede corregir fácilmente errores.
+[ ] Los métodos de pago son confiables para el mercado objetivo.
+[ ] Los métodos de envío están bien explicados.
+[ ] El resumen del pedido se mantiene claro.
+[ ] No aparecen costos sorpresa al final.
+[ ] El checkout está optimizado para móvil.
+[ ] La opción de compra como invitado está disponible o la cuenta no genera fricción excesiva.
+[ ] El usuario no siente incertidumbre en el último paso.
+[ ] El tiempo total de completar compra es razonable.
+
+==================================================
+12. EXPERIENCIA MÓVIL
+==================================================
+
+[ ] La tienda mantiene buena legibilidad en pantallas pequeñas.
+[ ] Los botones tienen tamaño adecuado para dedo.
+[ ] Los formularios son cómodos de completar desde móvil.
+[ ] El menú móvil no es confuso.
+[ ] Las imágenes se adaptan correctamente.
+[ ] Los textos no quedan cortados ni superpuestos.
+[ ] Los CTAs principales siguen visibles.
+[ ] El sticky add to cart, si existe, ayuda y no molesta.
+[ ] El scroll en páginas clave se siente fluido.
+[ ] El usuario puede comprar cómodamente solo desde smartphone.
+[ ] Los popups móviles no bloquean el proceso.
+[ ] La velocidad móvil es aceptable en páginas clave.
+
+==================================================
+13. VELOCIDAD, RENDIMIENTO Y ESTABILIDAD
+==================================================
+
+[ ] El home carga con rapidez razonable.
+[ ] Las fichas de producto cargan rápido.
+[ ] La galería de imágenes no bloquea la interacción.
+[ ] No hay scripts innecesarios afectando experiencia.
+[ ] La tienda evita exceso de apps invasivas.
+[ ] Los banners o animaciones no entorpecen la navegación.
+[ ] No se detectan errores visuales evidentes.
+[ ] No existen links rotos en páginas importantes.
+[ ] La tienda mantiene estabilidad general durante navegación.
+[ ] El rendimiento acompaña el volumen del catálogo y tráfico esperado.
+
+==================================================
+14. POPUPS, CAPTACIÓN Y MICROCONVERSIONES
+==================================================
+
+[ ] Los popups aparecen con timing razonable.
+[ ] El popup principal ofrece valor real.
+[ ] La captación de correo no interrumpe demasiado pronto.
+[ ] Existen formularios simples y claros.
+[ ] La tienda tiene un incentivo útil para captar leads cuando corresponde.
+[ ] Las microconversiones están definidas según etapa del usuario.
+[ ] Los popups se pueden cerrar fácilmente.
+[ ] La tienda evita saturar con múltiples capturas al mismo tiempo.
+
+==================================================
+15. CROSS-SELL, UPSELL Y AOV
+==================================================
+
+[ ] Existen productos complementarios bien sugeridos.
+[ ] Los upsells tienen relación lógica con la compra.
+[ ] Las recomendaciones no parecen aleatorias.
+[ ] La tienda utiliza bundles o packs cuando aplican.
+[ ] Existe incentivo para aumentar ticket promedio.
+[ ] Las recomendaciones aparecen en momentos correctos.
+[ ] El cross-sell no interrumpe en exceso el proceso de compra.
+[ ] La estrategia de AOV está pensada más allá del descuento simple.
+
+==================================================
+16. CONTENIDO, FAQ Y MANEJO DE OBJECIONES
+==================================================
+
+[ ] La tienda responde preguntas frecuentes relevantes.
+[ ] Las objeciones principales están resueltas en producto o checkout.
+[ ] Hay contenido útil sobre tallas, materiales, uso o cuidado si aplica.
+[ ] El tono del contenido ayuda a vender sin exagerar.
+[ ] La redacción es clara y orientada al usuario.
+[ ] No hay errores evidentes de ortografía o contenido pobre.
+[ ] El contenido ayuda a reducir soporte repetitivo.
+[ ] El usuario siente que tiene información suficiente para decidir.
+
+==================================================
+17. RETENCIÓN, RECOMPRA Y POSTCOMPRA
+==================================================
+
+[ ] La tienda incentiva recompra cuando el negocio lo requiere.
+[ ] Existen flujos o mensajes pensados para clientes recurrentes.
+[ ] La confirmación de compra es clara y útil.
+[ ] La experiencia posterior a la compra mantiene confianza.
+[ ] La tienda contempla seguimiento, soporte o educación postcompra si corresponde.
+[ ] Existen oportunidades para programas de fidelización, suscripción o referidos.
+[ ] La postcompra está pensada como parte de conversión extendida.
+
+==================================================
+18. ANALÍTICA, MEDICIÓN Y TESTING
+==================================================
+
+[ ] La tienda tiene configurada analítica base.
+[ ] Se mide correctamente el inicio de checkout.
+[ ] Se mide correctamente la compra final.
+[ ] Se revisan embudos de conversión.
+[ ] Se analizan páginas con mayor salida o abandono.
+[ ] Se identifican productos con alto tráfico y baja conversión.
+[ ] Se analizan dispositivos, fuentes y campañas por desempeño.
+[ ] La toma de decisiones se apoya en datos reales.
+[ ] Existen hipótesis de mejora y no solo cambios estéticos.
+[ ] La tienda tiene capacidad o plan para testear mejoras.
+
+==================================================
+19. PRIORIDADES Y PLAN DE ACCIÓN
+==================================================
+
+[ ] Los hallazgos se pueden clasificar en críticos, importantes y oportunidades.
+[ ] Existen quick wins claros para implementar primero.
+[ ] Las mejoras de alto impacto y baja dificultad están identificadas.
+[ ] Los problemas técnicos y comerciales están diferenciados.
+[ ] Hay una secuencia lógica de implementación.
+[ ] El negocio puede transformar la auditoría en roadmap real.
+
+==================================================
+20. CIERRE DE EVALUACIÓN
+==================================================
+
+Resumen sugerido:
+- Hallazgos críticos:
+- Hallazgos importantes:
+- Oportunidades:
+- Quick wins:
+- Mejoras de mediano plazo:
+- Mejoras de largo plazo:
+
+Clasificación sugerida:
+0 a 35 Sí
+La tienda necesita una intervención amplia de CRO.
+
+36 a 70 Sí
+La tienda tiene una base funcional, pero con varias fugas relevantes.
+
+71 a 100 Sí
+La tienda está mejor estructurada, aunque todavía tiene áreas claras por optimizar.
+
+101 a 130 Sí
+La tienda muestra una base fuerte de conversión y está lista para optimización fina.
+
+Recomendación comercial:
+Esta lista funciona como base para una auditoría Shopify CRO profesional, priorización técnica y propuesta de implementación.
