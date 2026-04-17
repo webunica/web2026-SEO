@@ -1,6 +1,6 @@
 'use server';
 
-import { supabase } from '@/lib/supabase/client';
+import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 
 export interface Testimonial {
@@ -9,11 +9,12 @@ export interface Testimonial {
   author: string;
   stars: number;
   active: boolean;
+  user_id?: string;
   created_at?: string;
 }
 
 export async function getTestimonials() {
-  if (!supabase) return { success: false, error: 'DB no disponible' };
+  const supabase = await createClient();
   
   const { data, error } = await supabase
     .from('testimonials')
@@ -24,12 +25,37 @@ export async function getTestimonials() {
   return { success: true, testimonials: data };
 }
 
-export async function createTestimonial(testimonial: Testimonial) {
-  if (!supabase) return { success: false, error: 'DB no disponible' };
+export async function getUserTestimonials() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) return { success: false, error: 'No autenticado' };
 
   const { data, error } = await supabase
     .from('testimonials')
-    .insert([testimonial])
+    .select('*')
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false });
+
+  if (error) return { success: false, error: error.message };
+  return { success: true, testimonials: data };
+}
+
+export async function createTestimonial(testimonial: Testimonial) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  const insertData = {
+    ...testimonial,
+    user_id: user?.id || null,
+    // If user is not admin, default active to false until approved?
+    // User requested "donde puedan acceder agregar su testimonio", so let's allow it.
+    active: user?.email === 'javiermillarv@gmail.com' ? testimonial.active : false
+  };
+
+  const { data, error } = await supabase
+    .from('testimonials')
+    .insert([insertData])
     .select()
     .single();
 
@@ -40,7 +66,7 @@ export async function createTestimonial(testimonial: Testimonial) {
 }
 
 export async function updateTestimonial(id: string, updates: Partial<Testimonial>) {
-  if (!supabase) return { success: false, error: 'DB no disponible' };
+  const supabase = await createClient();
 
   const { data, error } = await supabase
     .from('testimonials')
@@ -56,7 +82,7 @@ export async function updateTestimonial(id: string, updates: Partial<Testimonial
 }
 
 export async function deleteTestimonial(id: string) {
-  if (!supabase) return { success: false, error: 'DB no disponible' };
+  const supabase = await createClient();
 
   const { error } = await supabase
     .from('testimonials')

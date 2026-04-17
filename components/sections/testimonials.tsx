@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import Link from 'next/link';
 import { getTestimonials, Testimonial } from '@/lib/testimonial-actions';
  
 const MOCK_TESTIMONIALS = [
@@ -85,10 +86,19 @@ export default function TestimonialsSection() {
       </div>
  
       {/* Navigation Indicators (Dots) */}
-      <div className="flex justify-center gap-2 mt-12">
-        {displayList.map((_, i) => (
-          <div key={i} className="w-1 h-1 rounded-full bg-zinc-800" />
-        ))}
+      <div className="flex flex-col items-center gap-8 mt-16">
+        <div className="flex justify-center gap-2">
+          {displayList.map((_, i) => (
+            <div key={i} className="w-1 h-1 rounded-full bg-zinc-800" />
+          ))}
+        </div>
+        
+        <Link 
+          href="/mi-cuenta" 
+          className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 hover:text-violet-400 transition-colors border-b border-zinc-800 pb-1"
+        >
+          ¿Eres cliente? Deja tu testimonio aquí
+        </Link>
       </div>
     </section>
   );

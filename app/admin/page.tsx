@@ -1,3 +1,5 @@
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { 
   BarChart3, 
@@ -11,7 +13,14 @@ import {
   FileText
 } from 'lucide-react';
 
-export default function AdminDashboard() {
+export default async function AdminDashboard() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  // Simple Admin Check by Email
+  if (!user || user.email !== 'javiermillarv@gmail.com') {
+    redirect('/mi-cuenta');
+  }
   const adminModules = [
     {
       title: "Generador de Blog",
