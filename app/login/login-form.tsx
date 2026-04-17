@@ -133,7 +133,7 @@ export function LoginForm() {
                 <Lock className="absolute left-6 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
                 <input 
                   type="password" 
-                  required={mode !== 'reset'}
+                  required
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   className="w-full bg-slate-50 border border-slate-100 rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:border-violet-500 transition-all text-slate-700 font-medium"
